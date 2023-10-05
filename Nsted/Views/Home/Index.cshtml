@@ -4,5 +4,30 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+
+<!-- Clock container -->
+<div id="clock" style="font-size: 3rem;">
+    <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
 </div>
+
+</div>
+
+<script>
+    function updateClock() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+
+        document.getElementById('hours').textContent = hours;
+        document.getElementById('minutes').textContent = minutes;
+        document.getElementById('seconds').textContent = seconds;
+    }
+
+    // Update the clock every second
+    setInterval(updateClock, 1000);
+
+    // Initial clock update
+    updateClock();
+</script>

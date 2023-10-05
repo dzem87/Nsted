@@ -23,6 +23,21 @@ namespace Nsted.Controllers
             return View();
         }
 
+        public IActionResult Serviceoversikt()
+        {
+            return View();
+        }
+
+        public IActionResult Opprettservice()
+        {
+            return View();
+        }
+
+        public IActionResult Kundeoversikt()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

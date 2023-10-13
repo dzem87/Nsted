@@ -1,0 +1,165 @@
+﻿@{
+    ViewData["Title"] = "Sjekkliste";
+}
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Sjekkliste</h1>
+    <p>Dette er en sjekkliste</p>
+</div>
+
+<form>
+    <label for="Serienummer">Serienummer: </label>
+    <input type="number" />
+
+    <label for="Type">Type: </label>
+    <input type="text" />
+    <br /><br />
+
+    <table style="width:100%;">
+        <!--Oppretter en tabell for sjekklisten med radioknapper-->
+        <tr>
+            <th></th> <!--Overskrifter for tabellen-->
+            <th>Sjekkpunkter:</th>
+            <th>OK</th>
+            <th>Bør skiftes</th>
+            <th>Defekt</th>
+        </tr>
+        <tr>
+            <td><b>Mekanisk</b></td> <!-- kategori mekanisk-->
+            <td>Sjekk clutch lammeller for slitasje:</td> <!--Sjekkpunkt for clutch-->
+            <td><input type="radio" id="cOk" name="clutch" value="cOK" /></td> <!--Radioknapper gjør det mulig å bare krysse av en av gangen-->
+            <td> <input type="radio" id="cSlitasje" name="clutch" value="cSlitt" /></td> <!--cOk står for clutch OK-->
+            <td> <input type="radio" id="cDefekt" name="clutch" value="cDefekt" /></td>
+        </tr>
+        <tr>
+            <td></td> <!--Sjekkpunkt for bremser-->
+            <td>Sjekk bremser. Bånd/pål: </td>
+            <td><input type="radio" id="bOk" name="bremser" value="bOK" /></td>
+            <td> <input type="radio" id="bSlitasje" name="bremser" value="bSlitt" /></td>
+            <td> <input type="radio" id="bDefekt" name="bremser" value="bDefekt" /></td>
+        </tr>
+        <tr>
+            <td></td> <!--Sjekkpunkt for trommel-->
+            <td>Sjekk lager for trommel: </td>
+            <td><input type="radio" id="tOk" name="trommel" value="tOK" /></td>
+            <td> <input type="radio" id="tSlitasje" name="trommel" value="tSlitt" /></td>
+            <td> <input type="radio" id="tDefekt" name="trommel" value="tDefekt" /></td>
+        </tr>
+        <tr>
+            <td></td> <!--Sjekkpunkt for PTO og opplagring-->
+            <td>Sjekk PTO og opplagring: </td>
+            <td><input type="radio" id="ptoOk" name="pto" value="ptoOK" /></td>
+            <td> <input type="radio" id="ptoSlitasje" name="pto" value="ptoSlitt" /></td>
+            <td> <input type="radio" id="ptoDefekt" name="pto" value="ptoDefekt" /></td>
+        </tr>
+        <tr>
+            <td></td> <!--Sjekkpunkt for kjedestrammer-->
+            <td>Sjekk kjedestrammer: </td>
+            <td><input type="radio" id="kOk" name="kjedestrammer" value="kOK" /></td>
+            <td> <input type="radio" id="kSlitasje" name="kjedestrammer" value="kSlitt" /></td>
+            <td> <input type="radio" id="kDefekt" name="kjedestrammer" value="kDefekt" /></td>
+        </tr>
+        <tr>
+            <td></td> <!--Sjekkpunkt for wire-->
+            <td>Sjekk wire: </td>
+            <td><input type="radio" id="wOk" name="wire" value="wOK" /></td>
+            <td> <input type="radio" id="wSlitasje" name="wire" value="wSlitt" /></td>
+            <td> <input type="radio" id="wDefekt" name="wire" value="wDefekt" /></td>
+        </tr>
+        <tr>
+            <td></td> <!--Sjekkpunkt for pinon lager-->
+            <td>Sjekk pinon lager: </td>
+            <td><input type="radio" id="pOk" name="pinon" value="pOK" /></td>
+            <td> <input type="radio" id="pSlitasje" name="pinon" value="pSlitt" /></td>
+            <td> <input type="radio" id="pDefekt" name="pinon" value="pDefekt" /></td>
+        </tr>
+        <tr>
+            <td></td> <!--Sjekkpunkt for kile på kjedehjul-->
+            <td>Sjekk kile på kjedehjul: </td>
+            <td><input type="radio" id="kiOk" name="kile" value="kiOK" /></td>
+            <td> <input type="radio" id="kiSlitasje" name="kile" value="kiSlitt" /></td>
+            <td> <input type="radio" id="kiDefekt" name="kile" value="kiDefekt" /></td>
+        </tr>
+        <tr>
+            <th>Hydraulisk</th> <!--kategori for hydralisk-->
+            <td>Sjekk hydraulisk sylinder for lekkasje: </td> <!--Sjekkpunt for hydralisk sylinder-->
+            <td><input type="radio" id="hsOk" name="hSylinder" value="hsOK" /></td>
+            <td> <input type="radio" id="hsSlitasje" name="hSylinder" value="hsSlitt" /></td>
+            <td> <input type="radio" id="hsDefekt" name="hSylinder" value="hsDefekt" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Sjekk slanger for skader og lekkasje: </td> <!--Sjekkpunkt for slanger-->
+            <td><input type="radio" id="slOk" name="sLekkasje" value="slOK" /></td>
+            <td> <input type="radio" id="slSlitasje" name="sLekkase" value="slSlitt" /></td>
+            <td> <input type="radio" id="slDefekt" name="sLekkasje" value="slDefekt" /></td>
+        </tr>
+        <tr>
+            <td></td> <!--Sjekkpunkt for hydraulikkblokk-->
+            <td>Test hydraulikkblokk i testbenk: </td>
+            <td><input type="radio" id="hbOk" name="hydraulikkblokk" value="hbOK" /></td>
+            <td> <input type="radio" id="hbSlitasje" name="hydraulikkblokk" value="hbSlitt" /></td>
+            <td> <input type="radio" id="hbDefekt" name="hydraulikkblokk" value="hbDefekt" /></td>
+        </tr>
+        <tr>
+            <td></td> <!--Sjekkpunkt for olje-->
+            <td>Skift olje i tank: </td>
+            <td><input type="radio" id="oOk" name="olje" value="oOK" /></td>
+            <td> <input type="radio" id="oSlitasje" name="olje" value="oSlitt" /></td>
+            <td> <input type="radio" id="oDefekt" name="olje" value="oDefekt" /></td>
+        </tr>
+        <tr>
+            <td></td> <!--Sjekkpunkt for olje på gir boks-->
+            <td>Skift olje på gir boks: </td>
+            <td><input type="radio" id="obOk" name="oljeGirboks" value="obOK" /></td>
+            <td> <input type="radio" id="obSlitasje" name="oljeGirboks" value="obSlitt" /></td>
+            <td> <input type="radio" id="obDefekt" name="oljeGirboks" value="obDefekt" /></td>
+        </tr>
+        <tr>
+            <td></td> <!--Sjekkpunkt for Ringsylinder-->
+            <td>Sjekk Ringsylinder åpne og skift tetninger: </td>
+            <td><input type="radio" id="rOk" name="ringsylinder" value="rOK" /></td>
+            <td> <input type="radio" id="rSlitasje" name="ringsylinder" value="rSlitt" /></td>
+            <td> <input type="radio" id="rDefekt" name="ringsylinder" value="rDefekt" /></td>
+        </tr>
+        <tr>
+            <td></td> <!--Sjekkpunkt for bremse sylinder-->
+            <td>Sjekk bremse sylinder åpne og skift tetninger: </td>
+            <td><input type="radio" id="bsOk" name="bremseSylinder" value="bsOK" /></td>
+            <td> <input type="radio" id="bsSlitasje" name="bremseSylinder" value="bsSlitt" /></td>
+            <td> <input type="radio" id="bsDefekt" name="bremseSylinder" value="bsDefekt" /></td>
+        </tr>
+        <tr>
+            <th>Elektro</th> <!--Kategori for elektro-->
+            <td>Sjekk ledingsnett på vinsj: </td> <!--Sjekkpunkt for ledningsnett-->
+            <td><input type="radio" id="lOk" name="ledningsnett" value="lOK" /></td>
+            <td> <input type="radio" id="lSlitasje" name="ledningsnett" value="lSlitt" /></td>
+            <td> <input type="radio" id="lDefekt" name="ledningsnet" value="lDefekt" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Sjekk og test radio: </td> <!--Sjekkpunkt for radio-->
+            <td><input type="radio" id="rOk" name="radio" value="rOK" /></td>
+            <td> <input type="radio" id="rSlitasje" name="radio" value="rSlitt" /></td>
+            <td> <input type="radio" id="rDefekt" name="radio" value="rDefekt" /></td>
+        </tr>
+        <tr>
+            <td></td> <!--Sjekkpunkt for knappekasse-->
+            <td>Sjekk og test knappekasse: </td>
+            <td><input type="radio" id="kkOk" name="knappekasse" value="kkOK" /></td>
+            <td> <input type="radio" id="kkSlitasje" name="knappekasse" value="kkSlitt" /></td>
+            <td> <input type="radio" id="kkDefekt" name="knappekasse" value="kkDefekt" /></td>
+        </tr>
+    </table>
+    <br />
+    <label for="Kommentar">Kommentar: </label> <!--Oppretter tekstboks for å legge inn kommentar-->
+    <input type="text" />
+    <br /> <br />
+
+    <input type="submit" />
+</form>

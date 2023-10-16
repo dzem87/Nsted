@@ -1,0 +1,15 @@
+﻿@model Nsted.Models.Kunde
+
+<h2>Add Kunde</h2>
+
+<form asp-action="Index" method="post">
+    <div class="form-group">
+        <label>Customer Navn:</label>
+        <input asp-for="Navn" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-primary" />
+    </div>
+</form>
+
+

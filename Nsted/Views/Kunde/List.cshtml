@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Nsted.Models.Kunde>
+
+<h2>Alle Kunder</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Navn</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var kunde in Model)
+        {
+            <tr>
+                <td>@kunde.ID</td>
+                <td>@kunde.Navn</td>
+            </tr>
+        }
+    </tbody>
+</table>

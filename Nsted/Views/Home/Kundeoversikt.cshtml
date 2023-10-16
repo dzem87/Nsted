@@ -1,6 +1,47 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Kundeoversikt";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Bruker denne siden for å vise kundeoversikt</p>
+
+
+<div class="text-center">
+    <h1 class="display-4">Kundeoversikt</h1>
+    <p>Her er det en oversikt over eksisterende kunder </p>
+</div>
+
+
+@* @model Nsted.Models.KundeoversiktFormModel   *@
+
+<h1>Opprett ny kunde: </h1>
+<form action="form1" method="post">
+
+    <table>
+        <tr>
+            <td> Kundens navn </td>
+            <td> <input type="text" name="KundeNavn" \> </td>
+        </tr>
+        <tr>
+            <td> Kundens epost </td>
+            <td> <input type="text" name="KundeEpost" \> </td>
+        </tr>
+        <tr>
+            <td> Kundens telefonnummer </td>
+            <td> <input type="text" name="KundeTlf" \> </td>
+        </tr>
+        <tr>
+            <td> Kundens adresse </td>
+            <td> <input type="text" name="KundeAdr" \> </td>
+        </tr>
+        <tr>
+            <td> KundeNummer (tildeles automoatisk) </td>
+            <td> <input type="text" name="KNr" \> </td>
+        </tr>
+        <tr>
+            <td> <input type="submit" value="Opprett Kunden" \> </td>
+        </tr>
+
+    </table>
+
+</form>
+

@@ -7,9 +7,10 @@
 
 <div class="text-center">
     <h1 class="display-4">Kundeoversikt</h1>
-    <p>Her er det en oversikt over eksisterende kunder </p>
+    <p>Her er det en oversikt over eksisterende kunder og opprettelse av nye kunder </p>
 </div>
 
+<!-- Form for å opprette nye kunder -->
 
 @* @model Nsted.Models.KundeoversiktFormModel   *@
 
@@ -45,3 +46,42 @@
 
 </form>
 
+<!--
+Viser liste over eksisterende kunder
+-->
+
+
+@{
+    // var db = Database.Open("Noested?");
+    // var query = "SELECT * FROM Kunder?";
+}
+<html>
+<body>
+    <h1>Eksisterende Kunder</h1>
+    <table border="1" width="100%">
+        <tr>
+            <th>KundeNr</th>
+            <th>Navn</th>
+            <th>Email</th>
+            <th>Telefonnummer</th>
+            <th>Adresse</th>
+        </tr>
+
+        @*
+        @foreach (var row in db.Query(query))
+
+                 {
+
+                <tr>
+                    <td>@row.KundeNr</td>
+                    <td>@row.Navn</td>
+                    <td>@row.Email</td>
+                    <td>@row.Telefonnummer</td>
+                    <td>@row.Adresse</td>
+                 </tr>
+
+                 }*@
+
+    </table>
+</body>
+</html>

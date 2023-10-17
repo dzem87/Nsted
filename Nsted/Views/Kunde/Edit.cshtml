@@ -1,0 +1,21 @@
+﻿@model Nsted.Models.Kunde
+
+<h2>Edit Kunde</h2>
+
+<form asp-action="Edit" method="post">
+    <div class="form-group">
+        <label asp-for="ID"></label>
+        <input asp-for="ID" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Navn"></label>
+        <input asp-for="Navn" class="form-control" />
+    </div>
+
+    <!--Her kan vi legge til flere felt etterhvertt -->
+
+    @Html.AntiForgeryToken()
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

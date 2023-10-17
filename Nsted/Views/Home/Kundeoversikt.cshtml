@@ -16,7 +16,7 @@
 
 <h1>Opprett ny kunde: </h1>
 <form action="form1" method="post">
-
+    @Html.AntiForgeryToken()
     <table>
         <tr>
             <td> Kundens navn </td>

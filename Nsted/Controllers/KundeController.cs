@@ -1,12 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Nsted.Models;
 using System.Linq;
+using System.Text.Encodings.Web;
 
 namespace Nsted.Controllers
 {
 
     public class KundeController : Controller
     {
+        
+
         private readonly KundeContext _context;
 
         public KundeController(KundeContext context)
@@ -14,12 +17,15 @@ namespace Nsted.Controllers
             _context = context;
         }
 
+       
         public IActionResult Index()
         {
             return View();
         }
 
+        
         [HttpPost]
+        [ValidateAntiForgeryToken] 
         public IActionResult Index(Kunde kunde)
         {
             if (ModelState.IsValid)

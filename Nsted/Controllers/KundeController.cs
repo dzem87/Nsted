@@ -40,5 +40,46 @@ namespace Nsted.Controllers
         {
             return View(_context.Kunder.ToList());
         }
+
+        public IActionResult Delete(int id)
+        {
+            var kunde = _context.Kunder.Find(id);
+
+            if (kunde == null)
+            {
+                return NotFound(); // Eller en error side
+            }
+
+            _context.Kunder.Remove(kunde);
+            _context.SaveChanges();
+
+            return RedirectToAction("List");
+        }
+
+        public IActionResult Edit(int id)
+        {
+            var kunde = _context.Kunder.Find(id);
+
+            if (kunde == null)
+            {
+                return NotFound(); // Or a suitable error page
+            }
+
+            return View(kunde);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Kunde kunde)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Kunder.Update(kunde);
+                _context.SaveChanges();
+                return RedirectToAction("List");
+            }
+
+            return View(kunde);
+        }
     }
 }

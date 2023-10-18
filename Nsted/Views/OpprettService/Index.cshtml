@@ -1,0 +1,17 @@
+﻿
+@model Nsted.Models.OpprettService
+
+<h2>Opprett ny service her </h2>
+
+<form asp-action="Index" method="post">
+
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label>Serice notat</label>
+        <input asp-for="ServiceNotat" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-primary" />
+    </div>
+
+</form>

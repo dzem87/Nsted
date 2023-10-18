@@ -1,0 +1,23 @@
+﻿
+
+@model IEnumerable<Nsted.Models.OpprettService>
+
+<h2>Opprettende servicer</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Service Notat</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var OpprettService in Model)
+        {
+            <tr>
+                <td>@OpprettService.ID</td>
+                <td>@OpprettService.ServiceNotat</td>
+            </tr>
+        }
+    </tbody>
+</table>

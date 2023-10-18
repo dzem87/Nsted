@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Nsted.Models;
 
 namespace Nsted.Models
 {
@@ -9,5 +10,8 @@ namespace Nsted.Models
         }
 
         public DbSet<Kunde> Kunder { get; set; }
+
+        public DbSet<OpprettService> Servicer { get; set; }
+
     }
 }

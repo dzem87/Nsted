@@ -5,5 +5,4 @@ Navn på medlemmer:
 - Caroline
 - Dzemil
 - Nora
-- Maria
 - Victoria

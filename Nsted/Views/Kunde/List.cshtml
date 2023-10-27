@@ -6,7 +6,11 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Navn</th>
+            <th>Fornavn</th>
+            <th>Etternavn</th>
+            <th>Adresse</th>
+            <th>Telefon nummer</th>
+            <th>E-post</th>
         </tr>
     </thead>
     <tbody>
@@ -14,7 +18,11 @@
         {
             <tr>
                 <td>@kunde.ID</td>
-                <td>@kunde.Navn</td>
+                <td>@kunde.Fornavn</td>
+                <td>@kunde.Etternavn</td>
+                <td>@kunde.Adresse</td>
+                <td>@kunde.Telefon</td>
+                <td>@kunde.Epost</td>
                 <td>
                     <form asp-action="Delete" asp-route-id="@kunde.ID" method="post">
                         <button type="submit" class="btn btn-danger">Delete</button>

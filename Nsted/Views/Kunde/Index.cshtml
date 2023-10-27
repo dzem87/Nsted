@@ -6,8 +6,17 @@
 
     @Html.AntiForgeryToken()
     <div class="form-group">
-        <label>Customer Navn:</label>
-        <input asp-for="Navn" class="form-control" required />
+        <label>Fornavn:</label>
+        <input asp-for="Fornavn" class="form-control" required />
+        <label>Etternavn:</label>
+        <input asp-for="Etternavn" class="form-control" required />
+        <label>Adresse:</label>
+        <input asp-for="Adresse" class="form-control" required />
+        <label>Telefon nummer:</label>
+        <input asp-for="Telefon" class="form-control" required />
+        <label>E-post:</label>
+        <input asp-for="Epost" class="form-control" required />
+
     </div>
     <div class="form-group">
         <input type="submit" value="Submit" class="btn btn-primary" />

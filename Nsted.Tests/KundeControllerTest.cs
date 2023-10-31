@@ -13,7 +13,7 @@ namespace YourProject.Tests
         public void Index_ReturnsViewResult()
         {
             // Arrange
-            var context = Substitute.For<KundeContext>();
+            var context = Substitute.For<NstedDbContext>();
             var controller = new KundeController(context);
 
             // Act
@@ -27,7 +27,7 @@ namespace YourProject.Tests
         public void IndexPost_WithValidModel_RedirectsToList()
         {
             // Arrange
-            var context = Substitute.For<KundeContext>();
+            var context = Substitute.For<NstedDbContext>();
             var controller = new KundeController(context);
             var validKunde = new Kunde(); // Create a valid Kunde object
 
@@ -43,7 +43,7 @@ namespace YourProject.Tests
         public void IndexPost_WithInvalidModel_ReturnsViewResult()
         {
             // Arrange
-            var context = Substitute.For<KundeContext>();
+            var context = Substitute.For<NstedDbContext>();
             var controller = new KundeController(context);
             var invalidKunde = new Kunde();
             controller.ModelState.AddModelError("SomeProperty", "Some error message");

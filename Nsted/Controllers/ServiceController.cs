@@ -6,13 +6,13 @@ using System.Text.Encodings.Web;
 namespace Nsted.Controllers
 {
 
-    public class OpprettServiceController : Controller
+    public class ServiceController : Controller
     {
 
 
-        private readonly KundeContext _context;
+        private readonly NstedDbContext _context;
 
-        public OpprettServiceController(KundeContext context)
+        public ServiceController(NstedDbContext context)
         {
             _context = context;
         }

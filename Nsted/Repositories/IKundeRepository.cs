@@ -8,6 +8,13 @@ namespace Nsted.Repositories
         //Hente ut alle kunder
         Task<IEnumerable<Kunde>> GetAllAsync();
 
-        //Get single 
+        //Hente ut en kunde
+        Task<Kunde?> GetAsync(int id);
+
+        Task<Kunde?> AddAsync(Kunde kunde);
+
+        Task<Kunde?> UpdateAsync(Kunde kunde);
+
+        Task<Kunde?> DeleteAsync(int id);
     }
 }

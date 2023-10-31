@@ -3,9 +3,9 @@ using Nsted.Models;
 
 namespace Nsted.Models
 {
-    public class KundeContext : DbContext
+    public class NstedDbContext : DbContext
     {
-        public KundeContext(DbContextOptions<KundeContext> options) : base(options)
+        public NstedDbContext(DbContextOptions<NstedDbContext> options) : base(options)
         {
         }
 

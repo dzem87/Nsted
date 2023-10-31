@@ -8,7 +8,7 @@ using Nsted.Models;
 
 namespace Nsted.Migrations
 {
-    [DbContext(typeof(KundeContext))]
+    [DbContext(typeof(NstedDbContext))]
     partial class KundeContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

@@ -11,7 +11,7 @@ var configuration = builder.Configuration;
 var connectionString = configuration.GetConnectionString("DefaultConnection");
 
 // Register the DbContext as a service
-builder.Services.AddDbContext<KundeContext>(options =>
+builder.Services.AddDbContext<NstedDbContext>(options =>
     options.UseMySql(connectionString, new MySqlServerVersion(new Version(10, 5, 9))));
 
 builder.Services.AddControllersWithViews();

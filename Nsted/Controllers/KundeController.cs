@@ -10,9 +10,9 @@ namespace Nsted.Controllers
     {
         
 
-        private readonly KundeContext _context;
+        private readonly NstedDbContext _context;
 
-        public KundeController(KundeContext context)
+        public KundeController(NstedDbContext context)
         {
             _context = context;
         }

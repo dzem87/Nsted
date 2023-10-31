@@ -9,7 +9,7 @@ using Nsted.Models;
 
 namespace Nsted.Migrations
 {
-    [DbContext(typeof(KundeContext))]
+    [DbContext(typeof(NstedDbContext))]
     [Migration("20231027125621_UpdateKundeModel")]
     partial class UpdateKundeModel
     {

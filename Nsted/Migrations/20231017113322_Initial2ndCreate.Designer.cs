@@ -9,7 +9,7 @@ using Nsted.Models;
 
 namespace Nsted.Migrations
 {
-    [DbContext(typeof(KundeContext))]
+    [DbContext(typeof(NstedDbContext))]
     [Migration("20231017113322_Initial2ndCreate")]
     partial class Initial2ndCreate
     {

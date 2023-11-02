@@ -11,8 +11,6 @@ namespace Nsted.Controllers
     public class KundeController : Controller
     {
         
-
-        
         private readonly IKundeRepository kundeRepository;
 
         public KundeController(IKundeRepository kundeRepository)

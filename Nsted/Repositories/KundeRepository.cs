@@ -1,4 +1,5 @@
-﻿using Nsted.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Nsted.Models;
 
 namespace Nsted.Repositories
 {
@@ -13,29 +14,53 @@ namespace Nsted.Repositories
         }
 
 
-        public Task<Kunde?> AddAsync(Kunde kunde)
+        public async Task<Kunde?> AddAsync(Kunde kunde)
         {
-            throw new NotImplementedException();
+            await nstedDbContext.Kunder.AddAsync(kunde);
+            await nstedDbContext.SaveChangesAsync();
+            return kunde;
         }
 
-        public Task<Kunde?> DeleteAsync(int id)
+        public async Task<Kunde?> DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var eksistingKunde = await nstedDbContext.Kunder.FindAsync(id);
+
+            if (eksistingKunde != null)
+            {
+                nstedDbContext.Kunder.Remove(eksistingKunde);
+                await nstedDbContext.SaveChangesAsync();
+                return eksistingKunde;
+            }
+            return null;
         }
 
-        public Task<IEnumerable<Kunde>> GetAllAsync()
+        public async Task<IEnumerable<Kunde>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await nstedDbContext.Kunder.ToListAsync();
         }
 
         public Task<Kunde?> GetAsync(int id)
         {
-            throw new NotImplementedException();
+            return nstedDbContext.Kunder.FirstOrDefaultAsync(x => x.ID == id);
         }
 
-        public Task<Kunde?> UpdateAsync(Kunde kunde)
+        public async Task<Kunde?> UpdateAsync(Kunde kunde)
         {
-            throw new NotImplementedException();
+            var eksistingKunde = await nstedDbContext.Kunder.FindAsync(kunde.ID);
+            
+            if (eksistingKunde != null)
+            {
+                eksistingKunde.Fornavn = kunde.Fornavn;
+                eksistingKunde.Etternavn = kunde.Etternavn;
+                eksistingKunde.Adresse = kunde.Adresse;
+                eksistingKunde.Telefon = kunde.Telefon;
+                eksistingKunde.Epost = kunde.Epost;
+
+                await nstedDbContext.SaveChangesAsync();
+
+                return eksistingKunde;
+            }
+            return null;
         }
     }
 }

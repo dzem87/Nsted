@@ -1,24 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Nsted.Models;
+using Nsted.Repositories;
 using System.Linq;
 using System.Text.Encodings.Web;
 
 namespace Nsted.Controllers
 {
 
+
     public class KundeController : Controller
     {
         
+        private readonly IKundeRepository kundeRepository;
 
-        private readonly NstedDbContext _context;
-
-        public KundeController(NstedDbContext context)
+        public KundeController(IKundeRepository kundeRepository)
         {
-            _context = context;
+            this.kundeRepository = kundeRepository;
         }
 
        
-        public IActionResult Index()
+        public IActionResult Add()
         {
             return View();
         }
@@ -26,60 +27,62 @@ namespace Nsted.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken] 
-        public IActionResult Index(Kunde kunde)
+        public async Task<IActionResult> Add(Kunde kunde)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Kunder.Add(kunde);
-                _context.SaveChanges();
-                return RedirectToAction("List");
-            }
-            return View(kunde);
-        }
-        public IActionResult List()
-        {
-            return View(_context.Kunder.ToList());
-        }
+            await kundeRepository.AddAsync(kunde);
 
-        public IActionResult Delete(int id)
-        {
-            var kunde = _context.Kunder.Find(id);
-
-            if (kunde == null)
-            {
-                return NotFound(); // Eller en error side
-            }
-
-            _context.Kunder.Remove(kunde);
-            _context.SaveChanges();
-
+            //redirect to the list page
             return RedirectToAction("List");
         }
-
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> List()
         {
-            var kunde = _context.Kunder.Find(id);
+            var kunder = await kundeRepository.GetAllAsync();
 
-            if (kunde == null)
-            {
-                return NotFound(); // Or a suitable error page
+            return View(kunder);
+        }
+
+        public async Task<IActionResult> Delete(Kunde kunde)
+        {
+            var deletedKunde = await kundeRepository.DeleteAsync(kunde.ID);
+
+            if (deletedKunde != null)
+            {   
+                //Sucess notification
+                return RedirectToAction("List");
             }
 
-            return View(kunde);
+            //Show an error notification if Kunde is not found
+            return View(null);
+        }
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            var kunde = await kundeRepository.GetAsync(id);
+
+            if (kunde != null)
+            {   
+                //Sucess notifictaion
+                return View(kunde);
+            }
+
+            //Error notification
+            return View(null);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Kunde kunde)
+        public async Task<IActionResult> Edit(Kunde kunde)
         {
-            if (ModelState.IsValid)
+            var UpdatedKunde = await kundeRepository.UpdateAsync(kunde);
+
+            if (UpdatedKunde != null)
             {
-                _context.Kunder.Update(kunde);
-                _context.SaveChanges();
+                //sucess notification
                 return RedirectToAction("List");
             }
 
-            return View(kunde);
+            //error notification
+            return View(null);
         }
     }
 }

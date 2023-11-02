@@ -2,6 +2,7 @@ using Nsted.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore;
 using Nsted;
+using Nsted.Repositories;
 //using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +14,9 @@ var connectionString = configuration.GetConnectionString("DefaultConnection");
 // Register the DbContext as a service
 builder.Services.AddDbContext<NstedDbContext>(options =>
     options.UseMySql(connectionString, new MySqlServerVersion(new Version(10, 5, 9))));
+
+//Inject the interface into the services of our application
+builder.Services.AddScoped<IKundeRepository, KundeRepository>();
 
 builder.Services.AddControllersWithViews();
 

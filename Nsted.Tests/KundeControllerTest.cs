@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Nsted.Controllers;
 using Nsted.Models;
+using Nsted.Repositories;
 using NSubstitute;
 using System.Collections.Generic;
 using Xunit;
@@ -55,7 +56,21 @@ namespace YourProject.Tests
             Assert.IsType<ViewResult>(result);
         }
 
-        
+        public async Task PostvaluesToRepository()
+        {
+            var kundeRepository = Substitute.For<IKundeRepository>();
+            var UnitUnderTest = new KundeController(kundeRepository);
+            KundeRepository.GetAlll().Returns(new List<Kudnde> {new Kunde { })
+
+            UnitUnderTest.Add(new Kunde
+            {
+                UpsertModel = new Kunde
+                {
+
+                }
+            });
+            var sp = kundeRepository.ReceivedCalls().First().GetArguments().First() as Kunde;
+        }
 
         // Add similar test methods for Delete, Edit, and EditPost actions.
     }

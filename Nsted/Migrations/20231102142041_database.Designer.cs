@@ -10,15 +10,15 @@ using Nsted.Models;
 namespace Nsted.Migrations
 {
     [DbContext(typeof(NstedDbContext))]
-    [Migration("20231017113322_Initial2ndCreate")]
-    partial class Initial2ndCreate
+    [Migration("20231102142041_database")]
+    partial class database
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.12")
+                .HasAnnotation("ProductVersion", "7.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("Nsted.Models.Kunde", b =>
@@ -27,8 +27,19 @@ namespace Nsted.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Navn")
-                        .IsRequired()
+                    b.Property<string>("Adresse")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Epost")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Etternavn")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Fornavn")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Telefon")
                         .HasColumnType("longtext");
 
                     b.HasKey("ID");
@@ -43,7 +54,6 @@ namespace Nsted.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ServiceNotat")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("ID");

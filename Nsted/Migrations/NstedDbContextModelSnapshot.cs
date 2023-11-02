@@ -9,13 +9,13 @@ using Nsted.Models;
 namespace Nsted.Migrations
 {
     [DbContext(typeof(NstedDbContext))]
-    partial class KundeContextModelSnapshot : ModelSnapshot
+    partial class NstedDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.12")
+                .HasAnnotation("ProductVersion", "7.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("Nsted.Models.Kunde", b =>
@@ -25,23 +25,18 @@ namespace Nsted.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Adresse")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Epost")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Etternavn")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Fornavn")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Telefon")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("ID");
@@ -56,7 +51,6 @@ namespace Nsted.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ServiceNotat")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("ID");

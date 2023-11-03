@@ -39,9 +39,9 @@ namespace Nsted.Repositories
             return await nstedDbContext.Kunder.ToListAsync();
         }
 
-        public Task<Kunde?> GetAsync(int id)
+        public async Task<Kunde?> GetAsync(int id)
         {
-            return nstedDbContext.Kunder.FirstOrDefaultAsync(x => x.ID == id);
+            return await nstedDbContext.Kunder.FirstOrDefaultAsync(x => x.ID == id);
         }
 
         public async Task<Kunde?> UpdateAsync(Kunde kunde)

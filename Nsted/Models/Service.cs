@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Nsted.Models
 {
-    public class OpprettService
+    public class Service
     {
         
         public int ID { get; set; }

@@ -28,11 +28,6 @@
                 <td>@kunde.Telefon</td>
                 <td>@kunde.Epost</td>
                 <td>
-                    <form asp-action="Delete" asp-route-id="@kunde.ID" method="post">
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                </td>
-                <td>
                     <a asp-action="Edit" asp-route-id="@kunde.ID" class="btn btn-primary">Edit</a>
                 </td>
             </tr>

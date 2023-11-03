@@ -52,6 +52,7 @@ namespace Nsted.Controllers
             }
 
             //Show an error notification if Kunde is not found
+            //Finne en bedre måte å vise error på
             return View(null);
         }
 

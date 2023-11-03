@@ -1,6 +1,10 @@
 ﻿@model IEnumerable<Nsted.Models.Kunde>
 
-<h2>Alle Kunder</h2>
+<h2>Kundeoversikt</h2>
+
+<div style="margin-bottom: 20px;">
+    <a class="btn btn-primary" role="button" asp-area="" asp-controller="Kunde" asp-action="Add">Opprett Kunde</a>
+</div>
 
 <table class="table table-bordered table-striped">
     <thead>

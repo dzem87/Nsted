@@ -11,7 +11,7 @@ namespace Nsted.Models
 
         public DbSet<Kunde> Kunder { get; set; }
 
-        public DbSet<OpprettService> Servicer { get; set; }
+        public DbSet<Service> Servicer { get; set; }
 
     }
 }

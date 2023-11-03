@@ -1,6 +1,4 @@
-﻿
-
-@model IEnumerable<Nsted.Models.OpprettService>
+﻿@model IEnumerable<Nsted.Models.Service>
 
 <h2>Opprettende servicer</h2>
 
@@ -17,16 +15,18 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var OpprettService in Model)
+        @foreach (var service in Model)
         {
             <tr>
-                <td>@OpprettService.ID</td>
-                <td>@OpprettService.Produkttype</td>
-                <td>@OpprettService.ServiceRep</td>
-                <td>@OpprettService.Årsmodell</td>
-                <td>@OpprettService.Serienummer</td>
-                <td>@OpprettService.Notat</td>
+                <td>@service.ID</td>
+                <td>@service.Produkttype</td>
+                <td>@service.ServiceRep</td>
+                <td>@service.Årsmodell</td>
+                <td>@service.Serienummer</td>
+                <td>@service.Notat</td>
             </tr>
         }
     </tbody>
 </table>
+
+<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="sjekkliste">Link til sjekkliste</a>

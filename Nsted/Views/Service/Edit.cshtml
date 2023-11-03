@@ -1,0 +1,37 @@
+﻿@model Nsted.Models.Service
+
+<h2>Service</h2>
+
+<form asp-action="Edit" method="post">
+    <div class="form-group">
+        <label asp-for="ID"></label>
+        <input asp-for="ID" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Produkttype"></label>
+        <input asp-for="Produkttype" class="form-control" />
+        <label asp-for="ServiceRep"></label>
+        <input asp-for="ServiceRep" class="form-control" />
+        <label asp-for="Årsmodell"></label>
+        <input asp-for="Årsmodell" class="form-control" />
+        <label asp-for="Serienummer"></label>
+        <input asp-for="Serienummer" class="form-control" />
+        <label asp-for="Notat"></label>
+        <input asp-for="Notat" class="form-control" />
+    </div>
+
+    @Html.AntiForgeryToken()
+
+    <div class="d-flex">
+        <button type="submit" class="btn btn-primary">Save</button>
+
+        <button type="submit" class="btn btn-danger"
+                asp-area=""
+                asp-controller="Kunde"
+                asp-action="Delete">
+            Delete
+        </button>
+    </div>
+
+</form>

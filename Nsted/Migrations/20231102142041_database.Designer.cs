@@ -11,7 +11,7 @@ namespace Nsted.Migrations
 {
     [DbContext(typeof(NstedDbContext))]
     [Migration("20231102142041_database")]
-    partial class database
+    partial class Database
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -7,8 +7,16 @@
 
     @Html.AntiForgeryToken()
     <div class="form-group">
-        <label>Serice notat</label>
-        <input asp-for="ServiceNotat" class="form-control" required />
+        <label>Produkt Type:</label>
+        <input asp-for="Produkttype" class="form-control" required />
+        <label>Service/Rep: Garanti:</label>
+        <input asp-for="ServiceRep" class="form-control" required />
+        <label>Årsmodell:</label>
+        <input asp-for="Årsmodell" class="form-control" required />
+        <label>Serienummer:</label>
+        <input asp-for="Serienummer" class="form-control" required />
+        <label>Hva er avtalt med kunden?</label>
+        <input asp-for="Notat" class="form-control" required />
     </div>
     <div class="form-group">
         <input type="submit" value="Submit" class="btn btn-primary" />

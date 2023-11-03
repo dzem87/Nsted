@@ -7,8 +7,13 @@
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
-            <th>ID</th>
-            <th>Service Notat</th>
+            <th>Ordrenummer</th>
+            <th>Produkt Type</th>
+            <th>Service/Rep</th>
+            <th>Årsmodell</th>
+            <th>Serienummer</th>
+            <th>Notat</th>
+
         </tr>
     </thead>
     <tbody>
@@ -16,7 +21,11 @@
         {
             <tr>
                 <td>@OpprettService.ID</td>
-                <td>@OpprettService.ServiceNotat</td>
+                <td>@OpprettService.Produkttype</td>
+                <td>@OpprettService.ServiceRep</td>
+                <td>@OpprettService.Årsmodell</td>
+                <td>@OpprettService.Serienummer</td>
+                <td>@OpprettService.Notat</td>
             </tr>
         }
     </tbody>

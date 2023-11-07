@@ -1,12 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Nsted.Repositories;
 using Nsted.Models;
+using Microsoft.AspNetCore.Authorization;
 using System.Linq;
 using System.Text.Encodings.Web;
 
 
 namespace Nsted.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AnsattController : Controller
     {
         //constructor for the ansatt repository
@@ -17,12 +19,13 @@ namespace Nsted.Controllers
             this.ansattRepository = ansattRepository;
         }
 
+        [HttpGet]
         public IActionResult Add()
         {
             return View();
         }
 
-        //method that 
+        //method that
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Add(Ansatt ansatt)
@@ -36,6 +39,7 @@ namespace Nsted.Controllers
         }
 
         //method responsilbe for retreving all entities from the database and presenting them in the view
+        [HttpGet]
         public async Task<IActionResult> List()
         {
             //use repository to read data from the database

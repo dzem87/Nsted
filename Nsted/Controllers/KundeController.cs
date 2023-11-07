@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Nsted.Models;
 using Nsted.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using System.Linq;
 using System.Text.Encodings.Web;
 
@@ -18,7 +19,8 @@ namespace Nsted.Controllers
             this.kundeRepository = kundeRepository;
         }
 
-       
+        [Authorize]
+        [HttpGet]
         public IActionResult Add()
         {
             return View();

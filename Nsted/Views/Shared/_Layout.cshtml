@@ -28,6 +28,31 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Service" asp-action="Add">OpprettService</a>
                         </li>
+
+                        @*Dropdown*@
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Admin
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" asp-area=""
+                                       asp-controller="Ansatt"
+                                       asp-action="Add">
+                                        Legg til ansatt
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item" asp-area=""
+                                       asp-controller="Ansatt"
+                                       asp-action="List">
+                                        Se alle ansatte
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>

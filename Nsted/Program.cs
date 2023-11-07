@@ -18,6 +18,7 @@ builder.Services.AddDbContext<NstedDbContext>(options =>
 //Inject the interface into the services of our application
 builder.Services.AddScoped<IKundeRepository, KundeRepository>();
 builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
+builder.Services.AddScoped<IAnsattRepository, AnsattRepository>();
 
 builder.Services.AddControllersWithViews();
 

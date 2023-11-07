@@ -10,8 +10,8 @@ using Nsted.Models;
 namespace Nsted.Migrations
 {
     [DbContext(typeof(NstedDbContext))]
-    [Migration("20231102142041_database")]
-    partial class Database
+    [Migration("20231106112444_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,6 +20,25 @@ namespace Nsted.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
+
+            modelBuilder.Entity("Nsted.Models.Ansatt", b =>
+                {
+                    b.Property<int>("AnsattNr")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Etternavn")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Fornavn")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("AnsattNr");
+
+                    b.ToTable("Ansatte");
+                });
 
             modelBuilder.Entity("Nsted.Models.Kunde", b =>
                 {
@@ -47,14 +66,30 @@ namespace Nsted.Migrations
                     b.ToTable("Kunder");
                 });
 
-            modelBuilder.Entity("Nsted.Models.OpprettService", b =>
+            modelBuilder.Entity("Nsted.Models.Service", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("ServiceNotat")
+                    b.Property<string>("Notat")
+                        .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<string>("Produkttype")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Serienummer")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ServiceRep")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Årsmodell")
+                        .HasColumnType("int");
 
                     b.HasKey("ID");
 

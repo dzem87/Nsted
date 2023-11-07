@@ -2,7 +2,9 @@
 
 namespace Nsted.Models
 { 
-    public class Kunde { 
+    public class Kunde {
+        
+
         public int ID { get; set; }
         public string? Fornavn { get; set; }
 

@@ -1,0 +1,31 @@
+﻿@model Nsted.Models.Ansatt;
+
+<h2>Edit Ansatt</h2>
+
+<form asp-action="Edit" method="post">
+    <div class="form-group">
+        <label asp-for="AnsattNr"></label>
+        <input asp-for="AnsattNr" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Fornavn"></label>
+        <input asp-for="Fornavn" class="form-control" />
+        <label asp-for="Etternavn"></label>
+        <input asp-for="Etternavn" class="form-control" />
+    </div>
+
+    @Html.AntiForgeryToken()
+
+    <div class="d-flex">
+        <button type="submit" class="btn btn-primary">Save</button>
+
+        <button type="submit" class="btn btn-danger"
+                asp-area=""
+                asp-controller="Ansatt"
+                asp-action="Delete">
+            Delete
+        </button>
+    </div>
+
+</form>

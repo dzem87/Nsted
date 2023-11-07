@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Nsted.Models.Ansatt>
+
+<h2>Ansattoversikt</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>AnsattNr</th>
+            <th>Fornavn</th>
+            <th>Etternavn</th>
+        </tr>
+       
+    </thead>
+    <tbody>
+        @foreach (var ansatt in Model)
+        {
+            <tr>
+                <td>@ansatt.AnsattNr</td>
+                <td>@ansatt.Fornavn</td>
+                <td>@ansatt.Etternavn</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@ansatt.AnsattNr" class="btn btn-primary">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -18,6 +18,25 @@ namespace Nsted.Migrations
                 .HasAnnotation("ProductVersion", "7.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("Nsted.Models.Ansatt", b =>
+                {
+                    b.Property<int>("AnsattNr")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Etternavn")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Fornavn")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("AnsattNr");
+
+                    b.ToTable("Ansatte");
+                });
+
             modelBuilder.Entity("Nsted.Models.Kunde", b =>
                 {
                     b.Property<int>("ID")
@@ -44,7 +63,7 @@ namespace Nsted.Migrations
                     b.ToTable("Kunder");
                 });
 
-            modelBuilder.Entity("Nsted.Models.OpprettService", b =>
+            modelBuilder.Entity("Nsted.Models.Service", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()

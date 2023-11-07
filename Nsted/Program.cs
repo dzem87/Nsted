@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore;
 using Nsted;
 using Nsted.Repositories;
+using Nsted.Data;
+using Microsoft.AspNetCore.Identity;
 //using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,9 +13,29 @@ var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 var connectionString = configuration.GetConnectionString("DefaultConnection");
 
+var authConfig = builder.Configuration;
+var authConnectionString = authConfig.GetConnectionString("NstedAuthDbConnectionString");
+
 // Register the DbContext as a service
 builder.Services.AddDbContext<NstedDbContext>(options =>
     options.UseMySql(connectionString, new MySqlServerVersion(new Version(10, 5, 9))));
+
+builder.Services.AddDbContext<AuthDbContext>(options =>
+    options.UseMySql(authConnectionString, new MySqlServerVersion(new Version(10, 5, 9))));
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<AuthDbContext>();
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    //Default settings
+    options.Password.RequireDigit = true;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireNonAlphanumeric = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequiredLength = 6;
+    options.Password.RequiredUniqueChars = 1;
+});
 
 //Inject the interface into the services of our application
 builder.Services.AddScoped<IKundeRepository, KundeRepository>();
@@ -37,7 +59,10 @@ else
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
 app.UseRouting();
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

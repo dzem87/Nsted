@@ -105,7 +105,7 @@ namespace Nsted.Controllers
                 // Sjekker om brukeren blir slettet og returnerer oppdatert list
                 if (identityResult != null && identityResult.Succeeded)
                 {
-                    return RedirectToAction("List", "AdminUseers");
+                    return RedirectToAction("List", "AdminUsers");
                 }
             }
 

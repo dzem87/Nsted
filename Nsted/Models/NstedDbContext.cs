@@ -12,7 +12,5 @@ namespace Nsted.Models
 
         public DbSet<Service> Servicer { get; set; }
 
-        public DbSet<Ansatt> Ansatte { get; set; }
-
     }
 }

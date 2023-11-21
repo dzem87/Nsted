@@ -40,6 +40,11 @@
                 <td>
                     <a asp-action="Edit" asp-route-id="@kunde.ID" class="btn btn-primary">Edit</a>
                 </td>
+                <td>
+                <div style="margin-bottom: 20px;">
+                    <a class="btn btn-primary" role="button" asp-area="" asp-controller="Service" asp-action="Add">Opprett service</a>
+                </div>
+                </td>
             </tr>
         }
     </tbody>

@@ -2,6 +2,19 @@
 
 <h2>Opprettende servicer</h2>
 
+
+<form asp-controller="Service" asp-action="Search" method="get">
+    <div class="form-group">
+        <label for="searchString">Søk etter service</label>
+        <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" />
+        <input type="submit" value="Search" class="btn btn-primary" />
+    </div>
+</form>
+
+<a asp-action="List">Tilbake til alle servicer</a>
+
+<br />
+
 <table class="table table-bordered table-striped">
     <thead>
         <tr>

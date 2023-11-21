@@ -38,6 +38,7 @@ namespace Nsted.Controllers
         }
         public async Task<IActionResult> List()
         {
+
             var kunder = await kundeRepository.GetAllAsync();
 
             return View(kunder);
@@ -59,7 +60,7 @@ namespace Nsted.Controllers
         }
 
         public async Task<IActionResult> Edit(int id)
-        {
+        {    
             var kunde = await kundeRepository.GetAsync(id);
 
             if (kunde != null)
@@ -71,6 +72,21 @@ namespace Nsted.Controllers
             //Error notification
             return View(null);
         }
+
+
+        [HttpGet]
+        public async Task<IActionResult> Search(string searchString)
+        {
+            var kunder = await kundeRepository.GetAllAsync();
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                kunder = kunder.Where(kunde => kunde.Telefon.Contains(searchString));
+            }
+
+            return View("List", kunder);
+        }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]

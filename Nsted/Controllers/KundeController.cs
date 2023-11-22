@@ -8,10 +8,9 @@ using System.Text.Encodings.Web;
 namespace Nsted.Controllers
 {
 
-
+    [Authorize]
     public class KundeController : Controller
     {
-        
         private readonly IKundeRepository kundeRepository;
 
         public KundeController(IKundeRepository kundeRepository)

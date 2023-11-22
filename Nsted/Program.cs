@@ -1,4 +1,3 @@
-using Nsted.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore;
 using Nsted;
@@ -44,6 +43,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 builder.Services.AddScoped<IKundeRepository, KundeRepository>();
 builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ISjekklisteRepository, SjekklisteRepository>();
 
 builder.Services.AddControllersWithViews();
 

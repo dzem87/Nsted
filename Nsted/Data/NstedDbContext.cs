@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Nsted.Models;
 
-namespace Nsted.Models
+namespace Nsted.Data
 {
     public class NstedDbContext : DbContext
     {
@@ -11,6 +12,8 @@ namespace Nsted.Models
         public DbSet<Kunde> Kunder { get; set; }
 
         public DbSet<Service> Servicer { get; set; }
+
+        public DbSet<Sjekkliste> Sjekklister { get; set; }
 
     }
 }

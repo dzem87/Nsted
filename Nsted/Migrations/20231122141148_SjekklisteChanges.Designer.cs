@@ -5,14 +5,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Nsted.Data;
 
-
 #nullable disable
 
 namespace Nsted.Migrations
 {
     [DbContext(typeof(NstedDbContext))]
-    [Migration("20231106112444_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20231122141148_SjekklisteChanges")]
+    partial class SjekklisteChanges
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,25 +20,6 @@ namespace Nsted.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
-
-            modelBuilder.Entity("Nsted.Models.Ansatt", b =>
-                {
-                    b.Property<int>("AnsattNr")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Etternavn")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Fornavn")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("AnsattNr");
-
-                    b.ToTable("Ansatte");
-                });
 
             modelBuilder.Entity("Nsted.Models.Kunde", b =>
                 {
@@ -95,6 +75,72 @@ namespace Nsted.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Servicer");
+                });
+
+            modelBuilder.Entity("Nsted.Models.Sjekkliste", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Serienummer")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SjekkBremser")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SjekkBremsesylinder")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SjekkClutchLamellerForSlitasje")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SjekkHydrauliskSylinder")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SjekkKile")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SjekkKjedestrammer")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SjekkKnappekasse")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SjekkLagerForTrommel")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SjekkLedningsnett")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SjekkPinonLager")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SjekkRadio")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SjekkRyngsylinder")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SjekkSlanger")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SjekkWire")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SkifteOljeGirBoks")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SkifteOljeTank")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("TestHydraulikkblokk")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Sjekklister");
                 });
 #pragma warning restore 612, 618
         }

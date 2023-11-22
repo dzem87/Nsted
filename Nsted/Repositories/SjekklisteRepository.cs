@@ -20,9 +20,19 @@ namespace Nsted.Repositories
             return sjekkliste;
         }
 
-        public Task<Sjekkliste?> DeleteAsync(int id)
-        {
-            throw new NotImplementedException();
+        public async Task<Sjekkliste?> DeleteAsync(int id)
+           
+            {
+                var eksistingSjekkliste = await nstedDbContext.Sjekklister.FindAsync(id);
+
+                if (eksistingSjekkliste != null)
+                {
+                    nstedDbContext.Sjekklister.Remove(eksistingSjekkliste);
+                    await nstedDbContext.SaveChangesAsync();
+                    return eksistingSjekkliste;
+                }
+
+                return null;
         }
 
         public Task<IEnumerable<Sjekkliste>> GetAllAsync()
@@ -35,9 +45,38 @@ namespace Nsted.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<Sjekkliste?> UpdateAsync(Sjekkliste sjekkliste)
+        public async Task<Sjekkliste?> UpdateAsync(Sjekkliste sjekkliste)
         {
-            throw new NotImplementedException();
+            var eksistingSjekkliste = await nstedDbContext.Sjekklister.FindAsync(sjekkliste.Id);
+
+            if (eksistingSjekkliste != null)
+            {
+                eksistingSjekkliste.Serienummer = sjekkliste.Serienummer;
+                eksistingSjekkliste.SjekkClutchLamellerForSlitasje = sjekkliste.SjekkClutchLamellerForSlitasje;
+                eksistingSjekkliste.SjekkBremser = sjekkliste.SjekkBremser;
+                eksistingSjekkliste.SjekkLagerForTrommel = sjekkliste.SjekkLagerForTrommel;
+                //eksistingSjekkliste.SjekkPTO = sjekkliste.SjekkPTO;
+                eksistingSjekkliste.SjekkKjedestrammer = sjekkliste.SjekkKjedestrammer;
+                eksistingSjekkliste.SjekkWire = sjekkliste.SjekkWire;
+                eksistingSjekkliste.SjekkPinonLager = sjekkliste.SjekkPinonLager;
+                eksistingSjekkliste.SjekkKile = sjekkliste.SjekkKile;
+                eksistingSjekkliste.SjekkHydrauliskSylinder = sjekkliste.SjekkHydrauliskSylinder;
+                eksistingSjekkliste.SjekkSlanger = sjekkliste.SjekkSlanger;
+                eksistingSjekkliste.TestHydraulikkblokk = sjekkliste.TestHydraulikkblokk;
+                eksistingSjekkliste.SkifteOljeTank = sjekkliste.SkifteOljeTank;
+                eksistingSjekkliste.SkifteOljeGirBoks = sjekkliste.SkifteOljeGirBoks;
+                eksistingSjekkliste.SjekkRyngsylinder = sjekkliste.SjekkRyngsylinder;
+                eksistingSjekkliste.SjekkBremsesylinder = sjekkliste.SjekkBremsesylinder;
+                eksistingSjekkliste.SjekkLedningsnett = sjekkliste.SjekkLedningsnett;
+                eksistingSjekkliste.SjekkRadio = sjekkliste.SjekkRadio;
+                eksistingSjekkliste.SjekkKnappekasse = sjekkliste.SjekkKnappekasse;
+
+
+                await nstedDbContext.SaveChangesAsync();
+
+                return eksistingSjekkliste;
+            }
+            return null;
         }
     }
 }

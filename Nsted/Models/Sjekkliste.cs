@@ -12,7 +12,7 @@
 
         public string? SjekkLagerForTrommel {  get; set; }
 
-        string? SjekkPTO { get; set; }
+        //string? SjekkPTO { get; set; }
 
         public string? SjekkKjedestrammer { get; set; }
 

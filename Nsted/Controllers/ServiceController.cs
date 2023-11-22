@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Nsted.Models;
 using Nsted.Repositories;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Text.Encodings.Web;
 
 namespace Nsted.Controllers
 {
-
+    [Authorize]
     public class ServiceController : Controller
     {
 

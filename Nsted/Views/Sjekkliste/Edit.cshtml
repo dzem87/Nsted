@@ -1,0 +1,65 @@
+@model Nsted.Models.Sjekkliste
+
+<h2>Sjekkliste</h2>
+
+<form asp-action="Edit" method="post">
+    <div class="form-group">
+        <label asp-for="Id"></label>
+        <input asp-for="Id" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Serienummer"></label>
+        <input asp-for="Serienummer" class="form-control" />
+        <label asp-for="SjekkClutchLamellerForSlitasje"></label>
+        <input asp-for="SjekkClutchLamellerForSlitasje" class="form-control" />
+        <label asp-for="SjekkBremser"></label>
+        <input asp-for="SjekkBremser" class="form-control" />
+        <label asp-for="SjekkLagerForTrommel"></label>
+        <input asp-for="SjekkLagerForTrommel" class="form-control" />
+        <label asp-for="SjekkKjedestrammer"></label>
+        <input asp-for="SjekkKjedestrammer" class="form-control" />
+        <label asp-for="SjekkWire"></label>
+        <input asp-for="SjekkWire" class="form-control" />
+        <label asp-for="SjekkPinonLager"></label>
+        <input asp-for="SjekkPinonLager" class="form-control" />
+        <label asp-for="SjekkKile"></label>
+        <input asp-for="SjekkKile" class="form-control" />
+        <label asp-for="SjekkHydrauliskSylinder"></label>
+        <input asp-for="SjekkHydrauliskSylinder" class="form-control" />
+        <label asp-for="SjekkSlanger"></label>
+        <input asp-for="SjekkSlanger" class="form-control" />
+        <label asp-for="TestHydraulikkblokk"></label>
+        <input asp-for="TestHydraulikkblokk" class="form-control" />
+        <label asp-for="SkifteOljeTank"></label>
+        <input asp-for="SkifteOljeTank" class="form-control" />
+        <label asp-for="TestHydraulikkblokk"></label>
+        <input asp-for="TestHydraulikkblokk" class="form-control" />
+        <label asp-for="SkifteOljeGirBoks"></label>
+        <input asp-for="SkifteOljeGirBoks" class="form-control" />
+        <label asp-for="SjekkRyngsylinder"></label>
+        <input asp-for="SjekkRyngsylinder" class="form-control" />
+        <label asp-for="SjekkBremsesylinder"></label>
+        <input asp-for="SjekkBremsesylinder" class="form-control" />
+        <label asp-for="SjekkLedningsnett"></label>
+        <input asp-for="SjekkLedningsnett" class="form-control" />
+        <label asp-for="SjekkRadio"></label>
+        <input asp-for="SjekkRadio" class="form-control" />
+        <label asp-for="SjekkKnappekasse"></label>
+        <input asp-for="SjekkKnappekasse" class="form-control" />
+    </div>
+
+    @Html.AntiForgeryToken()
+
+    <div class="d-flex">
+        <button type="submit" class="btn btn-primary">Save</button>
+
+        <button type="submit" class="btn btn-danger"
+                asp-area=""
+                asp-controller="Sjekkliste"
+                asp-action="Delete">
+            Delete
+        </button>
+    </div>
+
+</form>

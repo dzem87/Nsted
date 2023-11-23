@@ -35,6 +35,8 @@ namespace Nsted.Controllers
             //redirect to the list page
             return RedirectToAction("List");
         }
+        
+        [HttpGet]
         public async Task<IActionResult> List()
         {
 

@@ -1,0 +1,37 @@
+@model IEnumerable<Nsted.Models.Sjekkliste>
+
+<h2>Sjekklister</h2>
+
+
+<form asp-controller="Sjekkliste" asp-action="Search" method="get">
+    <div class="form-group">
+        <label for="searchString">Søk etter sjekklister</label>
+        <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" />
+        <input type="submit" value="Search" class="btn btn-primary" />
+    </div>
+</form>
+
+<a asp-action="List">Tilbake til alle servicer</a>
+
+<br />
+
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>Serienummer</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var sjekkliste in Model)
+    {
+        <tr>
+            <td>@sjekkliste.Serienummer</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@sjekkliste.Id" class="btn btn-primary">Edit</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+

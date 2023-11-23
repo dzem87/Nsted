@@ -14,5 +14,7 @@ namespace Nsted.Repositories
         Task<Service?> UpdateAsync(Service service);
 
         Task<Service?> DeleteAsync(int id);
+        
+        
     }
 }

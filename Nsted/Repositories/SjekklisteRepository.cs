@@ -1,4 +1,5 @@
-﻿using Nsted.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Nsted.Data;
 using Nsted.Models;
 
 namespace Nsted.Repositories
@@ -35,14 +36,14 @@ namespace Nsted.Repositories
                 return null;
         }
 
-        public Task<IEnumerable<Sjekkliste>> GetAllAsync()
+        public async Task<IEnumerable<Sjekkliste>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await nstedDbContext.Sjekklister.ToListAsync();
         }
 
-        public Task<Sjekkliste?> GetAsync(int id)
+        public async Task<Sjekkliste?> GetAsync(int id)
         {
-            throw new NotImplementedException();
+            return await nstedDbContext.Sjekklister.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<Sjekkliste?> UpdateAsync(Sjekkliste sjekkliste)

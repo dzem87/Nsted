@@ -19,6 +19,12 @@
         <input asp-for="Serienummer" class="form-control" />
         <label asp-for="Notat"></label>
         <input asp-for="Notat" class="form-control" />
+        <label>Status:</label>
+        <select asp-for="Status" class="form-control" id="statusSelect">
+            <option value="Opprettet">Opprettet</option>
+            <option value="Påbegynt">Påbegynt</option>
+            <option value="Ferdig">Ferdig</option>
+        </select>
     </div>
 
     @Html.AntiForgeryToken()

@@ -24,6 +24,7 @@
             <th>Årsmodell</th>
             <th>Serienummer</th>
             <th>Notat</th>
+            <th>Status</th>
 
         </tr>
     </thead>
@@ -37,6 +38,10 @@
                 <td>@service.Årsmodell</td>
                 <td>@service.Serienummer</td>
                 <td>@service.Notat</td>
+                <td>@service.Status</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@service.ID" class="btn btn-primary">Edit</a>
+                </td>
             </tr>
         }
     </tbody>

@@ -17,6 +17,12 @@
         <input asp-for="Serienummer" class="form-control" required />
         <label>Hva er avtalt med kunden?</label>
         <input asp-for="Notat" class="form-control" required />
+        <label>Status:</label>
+        <select asp-for="Status" class="form-control" id="statusSelect">
+            <option value="Opprettet">Opprettet</option>
+            <option value="Påbegynt">Påbegynt</option>
+            <option value="Ferdig">Ferdig</option>
+        </select>
     </div>
     <div class="form-group">
         <input type="submit" value="Submit" class="btn btn-primary" />

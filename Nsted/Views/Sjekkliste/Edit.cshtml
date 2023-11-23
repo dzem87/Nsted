@@ -9,6 +9,11 @@
     </div>
 
     <div class="form-group">
+        <label asp-for="Serienummer"></label>
+        <input asp-for="Serienummer" class="form-control"/>
+    </div>
+
+    <div class="form-group">
         <table style="width:100%;">
             <tr>
                 <th>Avdeling:</th>
@@ -27,6 +32,7 @@
             </tr>
 
             <tr>
+                <td><b></b></td>
                 <td>SjekkBremser:</td>
                 <td><input type="radio" asp-for="SjekkBremser" value="Ok" /></td>
                 <td><input type="radio" asp-for="SjekkBremser" value="Bør Skiftes" /></td>
@@ -34,6 +40,7 @@
             </tr>
 
             <tr>
+                <td><b></b></td>
                 <td>SjekkLagerForTrommel:</td>
                 <td><input type="radio" asp-for="SjekkLagerForTrommel" value="Ok" /></td>
                 <td><input type="radio" asp-for="SjekkLagerForTrommel" value="Bør Skiftes" /></td>

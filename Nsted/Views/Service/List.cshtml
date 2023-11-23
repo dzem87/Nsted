@@ -2,17 +2,28 @@
 
 <h2>Opprettende servicer</h2>
 
-
 <form asp-controller="Service" asp-action="Search" method="get">
     <div class="form-group">
-        <label for="searchString">Søk etter service</label>
+        <label for="searchString">Søk etter serienummer</label>
         <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" />
-        <input type="submit" value="Search" class="btn btn-primary" />
+        <input type="submit" value="Search" class="btn btn-dark" />
     </div>
 </form>
 
-<a asp-action="List">Tilbake til alle servicer</a>
+<br />
 
+<form asp-controller="Service" asp-action="SearchStatus" method="get" style="float: right">
+    <div class="form-group">
+        <label for="searchString">Filtrer etter status</label>
+        <input type="submit" name="searchString" value="Opprettet" class="btn btn-dark" />
+        <input type="submit" name="searchString" value="Påbegynt" class="btn btn-dark" />
+        <input type="submit" name="searchString" value="Ferdig" class="btn btn-dark" />
+    </div>
+</form>
+
+<a asp-action="List" class="btn btn-dark" style="float: left">Tilbake til alle servicer</a>
+
+<br />
 <br />
 
 <table class="table table-bordered table-striped">
@@ -25,6 +36,7 @@
             <th>Serienummer</th>
             <th>Notat</th>
             <th>Status</th>
+            <th>Rediger</th>
 
         </tr>
     </thead>
@@ -40,11 +52,11 @@
                 <td>@service.Notat</td>
                 <td>@service.Status</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@service.ID" class="btn btn-primary">Edit</a>
+                    <a asp-action="Edit" asp-route-id="@service.ID" class="btn btn-dark">Rediger</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
-<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="sjekkliste">Link til sjekkliste</a>
+<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="sjekkliste" >Link til sjekkliste</a>

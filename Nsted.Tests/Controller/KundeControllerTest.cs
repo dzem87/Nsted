@@ -1,3 +1,6 @@
+//Klasse som tester metoder i KundeController ved bruk av...
+
+
 using Microsoft.AspNetCore.Mvc;
 using Nsted.Controllers;
 using Nsted.Models;

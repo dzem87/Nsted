@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Nsted.Models;
 using Nsted.Repositories;
 
 namespace Nsted.Controllers
 {
+    [Authorize]
     public class SjekklisteController : Controller
     {
         private readonly ISjekklisteRepository sjekklisteRepository;
@@ -49,7 +51,23 @@ namespace Nsted.Controllers
             //Error notification
             return View(null);
         }
-        
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(Sjekkliste sjekkliste)
+        {
+            var UpdatedSjekkliste = await sjekklisteRepository.UpdateAsync(sjekkliste);
+
+            if (UpdatedSjekkliste != null)
+            {
+                //sucess notification
+                return RedirectToAction("List");
+            }
+
+            //error notification
+            return View(null);
+        }
+
         public async Task<IActionResult> Delete(Sjekkliste sjekkliste)
         {
             var deletedSjekkliste = await sjekklisteRepository.DeleteAsync(sjekkliste.Id);

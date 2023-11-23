@@ -85,6 +85,19 @@ namespace Nsted.Controllers
             return View("List", service);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> SearchStatus(string searchString)
+        {
+            var service = await serviceRepository.GetAllAsync();
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                service = service.Where(service => service.Status.Contains(searchString));
+            }
+
+            return View("List", service);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Service service)

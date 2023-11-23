@@ -18,6 +18,8 @@ namespace Nsted.Models
 
         public string Notat { get; set; }
 
+        public string Status { get; set; }
+
     }
 }
 

@@ -11,44 +11,161 @@
 
     <div class="form-group">
         <label asp-for="Serienummer"></label>
-        <input asp-for="Serienummer" class="form-control" />
-        <label asp-for="SjekkClutchLamellerForSlitasje"></label>
-        <input asp-for="SjekkClutchLamellerForSlitasje" class="form-control" />
-        <label asp-for="SjekkBremser"></label>
-        <input asp-for="SjekkBremser" class="form-control" />
-        <label asp-for="SjekkLagerForTrommel"></label>
-        <input asp-for="SjekkLagerForTrommel" class="form-control" />
-        <label asp-for="SjekkKjedestrammer"></label>
-        <input asp-for="SjekkKjedestrammer" class="form-control" />
-        <label asp-for="SjekkWire"></label>
-        <input asp-for="SjekkWire" class="form-control" />
-        <label asp-for="SjekkPinonLager"></label>
-        <input asp-for="SjekkPinonLager" class="form-control" />
-        <label asp-for="SjekkKile"></label>
-        <input asp-for="SjekkKile" class="form-control" />
-        <label asp-for="SjekkHydrauliskSylinder"></label>
-        <input asp-for="SjekkHydrauliskSylinder" class="form-control" />
-        <label asp-for="SjekkSlanger"></label>
-        <input asp-for="SjekkSlanger" class="form-control" />
-        <label asp-for="TestHydraulikkblokk"></label>
-        <input asp-for="TestHydraulikkblokk" class="form-control" />
-        <label asp-for="SkifteOljeTank"></label>
-        <input asp-for="SkifteOljeTank" class="form-control" />
-        <label asp-for="TestHydraulikkblokk"></label>
-        <input asp-for="TestHydraulikkblokk" class="form-control" />
-        <label asp-for="SkifteOljeGirBoks"></label>
-        <input asp-for="SkifteOljeGirBoks" class="form-control" />
-        <label asp-for="SjekkRyngsylinder"></label>
-        <input asp-for="SjekkRyngsylinder" class="form-control" />
-        <label asp-for="SjekkBremsesylinder"></label>
-        <input asp-for="SjekkBremsesylinder" class="form-control" />
-        <label asp-for="SjekkLedningsnett"></label>
-        <input asp-for="SjekkLedningsnett" class="form-control" />
-        <label asp-for="SjekkRadio"></label>
-        <input asp-for="SjekkRadio" class="form-control" />
-        <label asp-for="SjekkKnappekasse"></label>
-        <input asp-for="SjekkKnappekasse" class="form-control" />
+        <input asp-for="Serienummer" class="form-control"/>
     </div>
+
+    <div class="form-group">
+        <table style="width:100%;">
+            <tr>
+                <th>Avdeling:</th>
+                <th>Sjekkpunkter:</th>
+                <th>OK</th>
+                <th>Bør skiftes</th>
+                <th>Defekt</th>
+            </tr>
+
+            <tr>
+                <td><b>Mekanisk</b></td>
+                <td>Sjekk clutch lammeller for slitasje:</td>
+                <td><input type="radio" asp-for="SjekkClutchLamellerForSlitasje" value="Ok" /></td>
+                <td><input type="radio" asp-for="SjekkClutchLamellerForSlitasje" value="Bør Skiftes" /></td>
+                <td><input type="radio" asp-for="SjekkClutchLamellerForSlitasje" value="Defekt" /></td>
+            </tr>
+
+            <tr>
+                <td><b></b></td>
+                <td>SjekkBremser:</td>
+                <td><input type="radio" asp-for="SjekkBremser" value="Ok" /></td>
+                <td><input type="radio" asp-for="SjekkBremser" value="Bør Skiftes" /></td>
+                <td><input type="radio" asp-for="SjekkBremser" value="Defekt" /></td>
+            </tr>
+
+            <tr>
+                <td><b></b></td>
+                <td>SjekkLagerForTrommel:</td>
+                <td><input type="radio" asp-for="SjekkLagerForTrommel" value="Ok" /></td>
+                <td><input type="radio" asp-for="SjekkLagerForTrommel" value="Bør Skiftes" /></td>
+                <td><input type="radio" asp-for="SjekkLagerForTrommel" value="Defekt" /></td>
+            </tr>
+
+            <tr>
+                <td><b></b></td>
+                <td>SjekkKjedestrammer:</td>
+                <td><input type="radio" asp-for="SjekkKjedestrammer" value="Ok" /></td>
+                <td><input type="radio" asp-for="SjekkKjedestrammer" value="Bør Skiftes" /></td>
+                <td><input type="radio" asp-for="SjekkKjedestrammer" value="Defekt" /></td>
+            </tr>
+
+            <tr>
+                <td><b></b></td>
+                <td>SjekkWire:</td>
+                <td><input type="radio" asp-for="SjekkWire" value="Ok" /></td>
+                <td><input type="radio" asp-for="SjekkWire" value="Bør Skiftes" /></td>
+                <td><input type="radio" asp-for="SjekkWire" value="Defekt" /></td>
+            </tr>
+
+            <tr>
+                <td><b></b></td>
+                <td>SjekkPinonLager:</td>
+                <td><input type="radio" asp-for="SjekkPinonLager" value="Ok" /></td>
+                <td><input type="radio" asp-for="SjekkPinonLager" value="Bør Skiftes" /></td>
+                <td><input type="radio" asp-for="SjekkPinonLager" value="Defekt" /></td>
+            </tr>
+
+            <tr>
+                <td><b></b></td>
+                <td>SjekkKile:</td>
+                <td><input type="radio" asp-for="SjekkKile" value="Ok" /></td>
+                <td><input type="radio" asp-for="SjekkKile" value="Bør Skiftes" /></td>
+                <td><input type="radio" asp-for="SjekkKile" value="Defekt" /></td>
+            </tr>
+
+            <tr>
+                <td><b>Hydraulisk</b></td>
+                <td>SjekkHydrauliskSylinder:</td>
+                <td><input type="radio" asp-for="SjekkHydrauliskSylinder" value="Ok" /></td>
+                <td><input type="radio" asp-for="SjekkHydrauliskSylinder" value="Bør Skiftes" /></td>
+                <td><input type="radio" asp-for="SjekkHydrauliskSylinder" value="Defekt" /></td>
+            </tr>
+
+            <tr>
+                <td><b></b></td>
+                <td>SjekkSlanger:</td>
+                <td><input type="radio" asp-for="SjekkSlanger" value="Ok" /></td>
+                <td><input type="radio" asp-for="SjekkSlanger" value="Bør Skiftes" /></td>
+                <td><input type="radio" asp-for="SjekkSlanger" value="Defekt" /></td>
+            </tr>
+
+            <tr>
+                <td><b></b></td>
+                <td>TestHydraulikkblokk:</td>
+                <td><input type="radio" asp-for="TestHydraulikkblokk" value="Ok" /></td>
+                <td><input type="radio" asp-for="TestHydraulikkblokk" value="Bør Skiftes" /></td>
+                <td><input type="radio" asp-for="TestHydraulikkblokk" value="Defekt" /></td>
+            </tr>
+
+            <tr>
+                <td><b></b></td>
+                <td>SkifteOljeTank:</td>
+                <td><input type="radio" asp-for="SkifteOljeTank" value="Ok" /></td>
+                <td><input type="radio" asp-for="SkifteOljeTank" value="Bør Skiftes" /></td>
+                <td><input type="radio" asp-for="SkifteOljeTank" value="Defekt" /></td>
+            </tr>
+
+            <tr>
+                <td><b></b></td>
+                <td>SkifteOljeGirBoks:</td>
+                <td><input type="radio" asp-for="SkifteOljeGirBoks" value="Ok" /></td>
+                <td><input type="radio" asp-for="SkifteOljeGirBoks" value="Bør Skiftes" /></td>
+                <td><input type="radio" asp-for="SkifteOljeGirBoks" value="Defekt" /></td>
+            </tr>
+
+            <tr>
+                <td><b></b></td>
+                <td>SjekkRyngsylinder:</td>
+                <td><input type="radio" asp-for="SjekkRyngsylinder" value="Ok" /></td>
+                <td><input type="radio" asp-for="SjekkRyngsylinder" value="Bør Skiftes" /></td>
+                <td><input type="radio" asp-for="SjekkRyngsylinder" value="Defekt" /></td>
+            </tr>
+
+            <tr>
+                <td><b></b></td>
+                <td>SjekkBremsesylinder:</td>
+                <td><input type="radio" asp-for="SjekkBremsesylinder" value="Ok" /></td>
+                <td><input type="radio" asp-for="SjekkBremsesylinder" value="Bør Skiftes" /></td>
+                <td><input type="radio" asp-for="SjekkBremsesylinder" value="Defekt" /></td>
+            </tr>
+
+
+            <tr>
+                <td><b>Elektro</b></td>
+                <td>SjekkLedningsnett:</td>
+                <td><input type="radio" asp-for="SjekkLedningsnett" value="Ok" /></td>
+                <td><input type="radio" asp-for="SjekkLedningsnett" value="Bør Skiftes" /></td>
+                <td><input type="radio" asp-for="SjekkLedningsnett" value="Defekt" /></td>
+            </tr>
+
+            <tr>
+                <td><b></b></td>
+                <td>SjekkRadio:</td>
+                <td><input type="radio" asp-for="SjekkRadio" value="Ok" /></td>
+                <td><input type="radio" asp-for="SjekkRadio" value="Bør Skiftes" /></td>
+                <td><input type="radio" asp-for="SjekkRadio" value="Defekt" /></td>
+            </tr>
+
+            <tr>
+                <td><b></b></td>
+                <td>SjekkKnappekasse:</td>
+                <td><input type="radio" asp-for="SjekkKnappekasse" value="Ok" /></td>
+                <td><input type="radio" asp-for="SjekkKnappekasse" value="Bør Skiftes" /></td>
+                <td><input type="radio" asp-for="SjekkKnappekasse" value="Defekt" /></td>
+            </tr>
+
+          
+
+        </table>
+    </div>
+
 
     @Html.AntiForgeryToken()
     <div class="d-flex">

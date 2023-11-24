@@ -2,32 +2,124 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Simonetta">
+    <style>
+        body {
+            font-family: "Simonetta", sans-serif;
+        }
+
+        .custom-text img {
+            width: 50%; /* Juster bredden etter behov */
+            height: auto; /* Beholder bildets aspektforhold */
+            /* Andre stiljusteringer om nødvendig */
+        }
+    </style>
+</head>
+}
+
+<div class="content-wrapper">
+    <h1 class="display-4">God morgen!</h1>
+
+    <!-- Clock container -->
+    <div id="clock" class="time-display">
+        <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+    </div>
+
+    <!-- Date container -->
+    <div id="date" class="date-display"></div>
+
+    <!-- Ny div for frittstående bilde -->
+    <div class="custom-text">
+        <img src="https://i.ibb.co/Xxykks6/Skjermbilde-2023-11-20-203041.png" alt="Beskrivende tekst">
+    </div>
 
 
-<!-- Clock container -->
-<div id="clock" style="font-size: 3rem;">
-    <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
-</div>
+    <style>
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align items to the left */
+            justify-content: center; /* Center items vertically */
+            height: 100vh; /* Full viewport height */
+            padding-left: 1%; /* Adjust padding as needed */
+            padding-top: 1%; /* Padding at the top, adjust as needed */
+        }
 
+        .display-4 {
+            color: lightblue;
+            margin: 0; /* Remove default margin */
+        }
+
+        .time-display, .date-display {
+            font-size: 3rem;
+            color: #e67e22;
+            margin: 0; /* Remove default margin */
+        }
+
+
+        .date-display {
+            color: white;
+            margin: 0; /* Remove default margin */
+        }
+
+        .fullscreen-img {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Eksisterende stiler... */
+        .custom-text {
+            margin-top: 20px; /* Avstand fra toppen av innholdet over */
+            padding: 20px; /* Indre avstand */
+            text-align: left; /* Justering av tekst */
+            color: lightgrey; /* Tekstfarge */
+            /* Ytterligere stiljusteringer etter behov */
+        }
+    </style>
+
+    <!-- Full screen image -->
+    <img class="fullscreen-img" src="https://i.ibb.co/0j9BLYJ/omnosted-31833d6e02.png" alt="Nøsted&">
 </div>
 
 <script>
-    function updateClock() {
+    function updateGreetingAndClock() {
         const now = new Date();
-        const hours = String(now.getHours()).padStart(2, '0');
+        const hours = now.getHours();
         const minutes = String(now.getMinutes()).padStart(2, '0');
         const seconds = String(now.getSeconds()).padStart(2, '0');
 
-        document.getElementById('hours').textContent = hours;
+        // Oppdaterer klokkeslettet
+        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
         document.getElementById('minutes').textContent = minutes;
         document.getElementById('seconds').textContent = seconds;
+
+        // Bestemmer hilsenen basert på tiden på dagen
+        let greeting;
+        if (hours >= 6 && hours < 9) {
+            greeting = "God morgen!";
+        } else if (hours >= 9 && hours < 12) {
+            greeting = "God formiddag!";
+        } else if (hours >= 12 && hours < 18) {
+            greeting = "God ettermiddag!";
+        } else {
+            greeting = "God kveld!";
+        }
+
+        // Oppdaterer hilsen
+        document.querySelector('.display-4').textContent = greeting;
+
+        // Viser dato
+        const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('date').textContent = now.toLocaleDateString('no-NO', dateOptions);
     }
 
-    // Update the clock every second
-    setInterval(updateClock, 1000);
-
-    // Initial clock update
-    updateClock();
+    // Initial oppdatering og sett intervallet
+    updateGreetingAndClock();
+    setInterval(updateGreetingAndClock, 1000);
 </script>

@@ -38,7 +38,7 @@
 
                 @*avslutter her*@
 
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">img src= "https://i.ibb.co/V3NzDDZ/Design-uten-navn.png" alt="Nsted Logo" style="height: 50px;"></a> @*legger til bilde for index*@
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src= "https://i.ibb.co/V3NzDDZ/Design-uten-navn.png" alt="Nsted Logo" style="height: 50px;"></a> @*legger til bilde for index*@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -84,7 +84,7 @@
 
                         @if (signInManger.IsSignedIn(User))
                         {
-                            <div class="me-3 text-ligth">
+                            <div class="me-3 text-ligth" style="color: white">
                                 @User?.Identity?.Name
                             </div>
 

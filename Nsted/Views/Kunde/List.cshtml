@@ -3,14 +3,15 @@
 <h2>Kundeoversikt</h2>
 
 <div style="margin-bottom: 20px;">
-    <a class="btn btn-primary" role="button" asp-area="" asp-controller="Kunde" asp-action="Add">Opprett Kunde</a>
+    <a class="btn btn-dark" role="button" asp-area="" asp-controller="Kunde" asp-action="Add">Opprett Kunde</a>
 </div>
 
 <form asp-controller="Kunde" asp-action="Search" method="get">
+    @Html.AntiForgeryToken()
     <div class="form-group">
         <label for="searchString">Søk etter telefonnummer</label>
         <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" />
-        <input type="submit" value="Search" class="btn btn-primary" />
+        <input type="submit" value="Search" class="btn btn-dark" />
     </div>
 </form>
 
@@ -25,6 +26,8 @@
             <th>Adresse</th>
             <th>Telefon nummer</th>
             <th>E-post</th>
+            <th>Rediger</th>
+            <th>Opprett service</th>
         </tr>
     </thead>
     <tbody>
@@ -38,12 +41,13 @@
                 <td>@kunde.Telefon</td>
                 <td>@kunde.Epost</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@kunde.ID" class="btn btn-primary">Edit</a>
+                    <a asp-action="Edit" asp-route-id="@kunde.ID" class="btn btn-dark">Rediger</a>
                 </td>
                 <td>
-                <div style="margin-bottom: 20px;">
-                    <a class="btn btn-primary" role="button" asp-area="" asp-controller="Service" asp-action="Add">Opprett service</a>
-                </div>
+                    <div style="margin-bottom: 20px;">
+                        @Html.AntiForgeryToken()
+                        <a class="btn btn-dark" role="button" asp-area="" asp-controller="Service" asp-action="Add">Opprett service</a>
+                    </div>
                 </td>
             </tr>
         }

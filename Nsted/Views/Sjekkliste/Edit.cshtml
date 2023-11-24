@@ -3,6 +3,7 @@
 <h2>Sjekkliste</h2>
 
 <form asp-action="Edit" method="post">
+    @Html.AntiForgeryToken()
     <div class="form-group">
         <label asp-for="Id"></label>
         <input asp-for="Id" class="form-control" readonly />
@@ -167,7 +168,6 @@
 
 
     @Html.AntiForgeryToken()
-
     <div class="d-flex">
         <button type="submit" class="btn btn-primary">Save</button>
 

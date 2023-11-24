@@ -8,6 +8,7 @@
         <input asp-for="ID" class="form-control" readonly />
     </div>
 
+    @Html.AntiForgeryToken()
     <div class="form-group">
         <label asp-for="Fornavn"></label>
         <input asp-for="Fornavn" class="form-control" />
@@ -21,17 +22,16 @@
         <input asp-for="Epost" class="form-control" />
     </div>
 
-    @Html.AntiForgeryToken()
-    
-        <div class="d-flex">
-            <button type="submit" class="btn btn-primary">Save</button>
 
-            <button type="submit" class="btn btn-danger"
-                    asp-area=""
-                    asp-controller="Kunde"
-                    asp-action="Delete">
-                Delete
-            </button>
-        </div>
+    <div class="d-flex">
+        <button type="submit" class="btn btn-primary">Save</button>
+
+        <button type="submit" class="btn btn-danger"
+                asp-area=""
+                asp-controller="Kunde"
+                asp-action="Delete">
+            Delete
+        </button>
+    </div>
 
 </form>

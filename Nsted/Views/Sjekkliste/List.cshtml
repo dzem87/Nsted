@@ -28,6 +28,7 @@
         <tr>
             <td>@sjekkliste.Serienummer</td>
             <td>
+                @Html.AntiForgeryToken()
                 <a asp-action="Edit" asp-route-id="@sjekkliste.Id" class="btn btn-primary">Edit</a>
             </td>
         </tr>

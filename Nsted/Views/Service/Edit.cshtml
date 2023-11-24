@@ -33,7 +33,7 @@
 <div class="d-flex">
     <button type="submit" class="btn btn-dark">Save</button>
 
-    <button type="button" class="btn btn-danger"
+    <button type="submit" class="btn btn-danger"
             asp-area=""
             asp-controller="Service"
             asp-action="Delete"
@@ -41,18 +41,11 @@
         Delete
     </button>
 
-    <script>function confirmDelete() {
-            var confirmResult = confirm("Ønsker du å slette denne servicen?");
-
-            if (confirmResult) {
-                // Brukeren klikket "OK", så du kan gjennomføre sletteoperasjonen
-                // Her kan du legge til koden for sletting eller sende skjemaet
-                // For eksempel:
-                // document.forms["deleteForm"].submit();
-                alert("Servicen er slettet!"); // Dette er bare en ekstra varsling for eksempel
-            } else {
-                // Brukeren klikket "Avbryt", ingen handling er nødvendig
-            }</script>
+    <script>
+        function confirmDelete() {
+            alert("Servicen er slettet!");
+            }
+    </script>
 </div>
 
 </form>

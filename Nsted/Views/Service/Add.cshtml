@@ -20,12 +20,12 @@
         <label>Status:</label>
         <select asp-for="Status" class="form-control" id="statusSelect">
             <option value="Opprettet">Opprettet</option>
-            <option value="Påbegynt">Påbegynt</option>
-            <option value="Ferdig">Ferdig</option>
+            <option value="Påbegynt" disabled>Påbegynt</option>
+            <option value="Ferdig" disabled>Ferdig</option>
         </select>
     </div>
     <div class="form-group">
-        <input type="submit" value="Submit" class="btn btn-primary" />
+        <input type="submit" value="Submit" class="btn btn-dark" />
     </div>
 
 </form>

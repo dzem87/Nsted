@@ -2,40 +2,46 @@
 
 <h2>Sjekklister</h2>
 
+<div style="margin-bottom: 20px; float:left;">
+    <a class="btn btn-dark" role="button" asp-area="" asp-controller="Sjekkliste" asp-action="Add">Opprett ny sjekkliste</a>
+</div>
 
-<form asp-controller="Sjekkliste" asp-action="Search" method="get">
-    <div class="form-group">
-        <label for="searchString">Søk etter sjekklister</label>
-        <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" />
-        <input type="submit" value="Search" class="btn btn-dark" />
-    </div>
-</form>
+<a asp-action="List" class="btn btn-dark" style="float:right;">Tilbake til alle sjekklister</a>
 
 <br />
-
-<a asp-action="List" class="btn btn-dark">Tilbake til alle sjekklister</a>
-
 <br />
+
+<div style="float:right;">
+    <form asp-controller="Sjekkliste" asp-action="Search" method="get">
+        <div class="form-group">
+            <label for="searchString">Søk etter sjekklister</label>
+            <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Søk" class="btn btn-dark" />
+        </div>
+    </form>
+</div>
+
+
 <br />
 
 <table class="table table-bordered table-striped">
     <thead>
-    <tr>
-        <th>Serienummer</th>
+        <tr>
+            <th>Serienummer</th>
 
-    </tr>
+        </tr>
     </thead>
     <tbody>
-    @foreach (var sjekkliste in Model)
-    {
-        <tr>
-            <td>@sjekkliste.Serienummer</td>
-            <td>
-                @Html.AntiForgeryToken()
-                <a asp-action="Edit" asp-route-id="@sjekkliste.Id" class="btn btn-dark">Edit</a>
-            </td>
-        </tr>
-    }
+        @foreach (var sjekkliste in Model)
+        {
+            <tr>
+                <td>@sjekkliste.Serienummer</td>
+                <td>
+                    @Html.AntiForgeryToken()
+                    <a asp-action="Edit" asp-route-id="@sjekkliste.Id" class="btn btn-dark">Rediger</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 

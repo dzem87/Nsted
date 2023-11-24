@@ -26,8 +26,7 @@ namespace Nsted.Controllers
         {
             await sjekklisteRepository.AddAsync(sjekkliste);
 
-            //redirect to the list page
-            return View(sjekkliste);
+            return RedirectToAction("List");
         }
         
         [HttpGet]

@@ -41,7 +41,7 @@
                                       asp-action="Delete"
                                       asp-route-id="@user.Id">
                                     @Html.AntiForgeryToken()
-                                    <button class="btn btn-danger" type="submit">Slett</button>
+                                    <button class="btn btn-danger" type="submit" onclick="confirmDelete">Slett</button>
                                 </form>
                             </td>
                         </tr>
@@ -99,3 +99,14 @@
         </div>
     </div>
 </form>
+
+<script>function confirmDelete() {
+        var confirmResult = confirm("Ønsker du å slette denne brukeren?");
+
+        if (confirmResult) {
+            alert("Brukeren er slettet!"); // Dette er bare en ekstra varsling for eksempel
+        } else {
+            // Brukeren klikket "Avbryt", ingen handling er nødvendig
+            return view(List);
+        }
+    }</script>

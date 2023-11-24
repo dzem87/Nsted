@@ -1,5 +1,7 @@
+
+
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
@@ -9,7 +11,8 @@ html {
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    background-color: #101820;
 }
 
 html {
@@ -19,12 +22,30 @@ html {
 
 body {
   margin-bottom: 60px;
+  font-family: inter; 
 }
 
-}
 
-/* For å style navbar med fargekode */
+/* For ï¿½ style navbar med fargekode */
 .navbar {
-    background-color: black; /* Erstatt "HEX-koden" med ønsket fargekode */
+    background-color: #101820; /* Erstatt "HEX-koden" med ï¿½nsket fargekode */
     /* Andre stilregler her, for eksempel tekstfarge og padding */
+}
+
+a:hover {
+    background-color: #FF7A00;
+}
+
+.active, .btn:hover {
+    background-color: #FF7A00;
+    color: white;
+    border-color: #FF7A00;
+}
+
+table {
+    background-color: #F6F8FA;
+}
+
+.form-control:focus {
+    background-color: #EFF4F7
 }

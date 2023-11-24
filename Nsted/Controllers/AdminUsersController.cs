@@ -47,8 +47,8 @@ namespace Nsted.Controllers
         }
 
 
-
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> List(UserViewModel request)
         {
             var identityUser = new IdentityUser
@@ -91,6 +91,7 @@ namespace Nsted.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(Guid id)
         {
             // Henter bruker basert på Id

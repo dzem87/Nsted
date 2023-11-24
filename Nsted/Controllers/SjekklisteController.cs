@@ -35,7 +35,8 @@ namespace Nsted.Controllers
 
             return View(sjekklister);
         }
-        
+
+        [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
             var sjekkliste = await sjekklisteRepository.GetAsync(id);
@@ -49,7 +50,9 @@ namespace Nsted.Controllers
             //Error notification
             return View(null);
         }
-        
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(Sjekkliste sjekkliste)
         {
             var deletedSjekkliste = await sjekklisteRepository.DeleteAsync(sjekkliste.Id);
@@ -64,7 +67,8 @@ namespace Nsted.Controllers
             //Finne en bedre måte å vise error på
             return View(null);
         }
-        
+
+        [HttpGet]
         public async Task<IActionResult> Search(string searchString)
         {
             var sjekklister = await sjekklisteRepository.GetAllAsync();

@@ -43,6 +43,8 @@ namespace Nsted.Controllers
             return View(servicer);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(Service service)
         {
             var deletedService = await serviceRepository.DeleteAsync(service.ID);
@@ -58,6 +60,7 @@ namespace Nsted.Controllers
         }
 
         //Hvordan fungerer id parameteren her?
+        [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
             var service = await serviceRepository.GetAsync(id);

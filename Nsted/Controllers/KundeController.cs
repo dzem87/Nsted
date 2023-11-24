@@ -45,6 +45,8 @@ namespace Nsted.Controllers
             return View(kunder);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(Kunde kunde)
         {
             var deletedKunde = await kundeRepository.DeleteAsync(kunde.ID);
@@ -60,6 +62,7 @@ namespace Nsted.Controllers
             return View(null);
         }
 
+        [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {    
             var kunde = await kundeRepository.GetAsync(id);

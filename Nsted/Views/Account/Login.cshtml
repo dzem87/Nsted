@@ -9,6 +9,7 @@
             </h1>
 
             <form method="post">
+                @Html.AntiForgeryToken()
                 <div class="mb-3">
                     <label class="form-label">Username</label>
                     <input type="text" id="username" class="form-control" asp-for="Username" />

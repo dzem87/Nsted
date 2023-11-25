@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Nsted.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+//Kontroller som har ansvaret for bruker-relatert autentisering med bruk av Identity Framework
 
 namespace Nsted.Controllers
 {
@@ -15,6 +15,7 @@ namespace Nsted.Controllers
         private readonly UserManager<IdentityUser> userManager;
         private readonly SignInManager<IdentityUser> signInManager;
 
+        //Tjenseser kontrolleren bruker for innlogging av avlogging
         public AccountController(UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager)
         {
@@ -23,18 +24,14 @@ namespace Nsted.Controllers
         }
 
        
-
+        //Returnerer Login Viewet
         [HttpGet]
-        public IActionResult Login(string ReturnUrl)
+        public IActionResult Login()
         {
-            var model = new LoginViewModel
-            {
-                ReturnUrl = ReturnUrl
-            };
-
-            return View(model);
+            return View();
         }
 
+        //Håndterer HTTP POST forespørsel fra Login formet
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
@@ -50,6 +47,7 @@ namespace Nsted.Controllers
             return View();
         }
 
+        //Håndterer HTTP GET forespørsel for å logge ut brukeren
         [HttpGet]
         public async Task<IActionResult> Logout()
         {
@@ -57,11 +55,6 @@ namespace Nsted.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        [HttpGet]
-        public IActionResult AccessDenied()
-        {
-            return View();
-        }
     }
 }
 

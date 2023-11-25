@@ -1,12 +1,14 @@
-﻿using System;
-using Microsoft.AspNetCore.Identity;
+﻿    using System;
+    using Microsoft.AspNetCore.Identity;
+        
+    //Interface som 
 
-namespace Nsted.Interfaces
-{
-    public interface IUserRepository
+    namespace Nsted.Interfaces
     {
-        Task<IEnumerable<IdentityUser>> GetAll();
+        public interface IUserRepository
+        {
+            Task<IEnumerable<IdentityUser>> GetAll();
+        }
     }
-}
 
 

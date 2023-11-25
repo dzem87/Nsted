@@ -24,14 +24,17 @@
 
     <br />
 
-    <div class="d-flex">
+    <div class="d-flex" style="float:left;">
         <button type="submit" class="btn btn-dark">Lagre</button>
-
+    </div>
+    
+    <div class="d-flex" style="float:right;">
         <button type="submit" class="btn btn-danger"
                 asp-area=""
                 asp-controller="Kunde"
                 asp-action="Delete"
-                onclick="confirmDelete()">
+                onclick="confirmDelete()"
+                >
             Slett
         </button>
 

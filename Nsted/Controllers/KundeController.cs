@@ -5,27 +5,36 @@ using System.Linq;
 using System.Text.Encodings.Web;
 using Nsted.Interfaces;
 
+//Kontroller som bruker KundeRepository for å kommunisere med Kunder tabllen i databasen
+//og inneholder metoder for å 
+//som tar imot ulike HTTP requests fra views og bruker KundeRepository
+//for å kommunisere med Kunder tabellen i databasen
+
+
 namespace Nsted.Controllers
 {
 
+    //Alle metoder i kontrolleren krever autorisasjon
     [Authorize]
     public class KundeController : Controller
     {
-        private readonly IKundeRepository kundeRepository;
 
+        private readonly IKundeRepository kundeRepository;
+        
         public KundeController(IKundeRepository kundeRepository)
         {
             this.kundeRepository = kundeRepository;
         }
 
-        [Authorize]
+       
+        //Returnerer et view for å legge til nye kunder
         [HttpGet]
         public IActionResult Add()
         {
             return View();
         }
 
-        
+        //
         [HttpPost]
         [ValidateAntiForgeryToken] 
         public async Task<IActionResult> Add(Kunde kunde)

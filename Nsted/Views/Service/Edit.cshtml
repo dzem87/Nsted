@@ -1,13 +1,17 @@
 ﻿@model Nsted.Models.Service
 
+<!--View som viser edit siden av en service-->
+
 <h2>Service</h2>
 
+<!--Setter ID som en readonly fordi det ikek skal være mulig å endre ID på en service-->
 <form asp-action="Edit" method="post">
     <div class="form-group">
         <label asp-for="ID"></label>
         <input asp-for="ID" class="form-control" readonly />
     </div>
 
+    <!--Input forms i servicen som kan endres-->
     <div class="form-group">
         <label asp-for="Produkttype"></label>
         <input asp-for="Produkttype" class="form-control" />
@@ -33,6 +37,7 @@
 <div class="d-flex">
     <button type="submit" class="btn btn-dark">Save</button>
 
+    <!--Knapp med en onlic funksjon for å vise en alert når en service blir slettet-->
     <button type="submit" class="btn btn-danger"
             asp-area=""
             asp-controller="Service"
@@ -41,6 +46,7 @@
         Delete
     </button>
 
+    <!--Script for å vise en alert-->
     <script>
         function confirmDelete() {
             alert("Servicen er slettet!");

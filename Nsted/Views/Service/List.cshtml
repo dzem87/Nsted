@@ -1,6 +1,8 @@
 ﻿@model IEnumerable<Nsted.Models.Service>
-
+<!--View for serviceoversikt som lister ut alle servicer i en oversikltig tabell-->
 <h2>Opprettede servicer</h2>
+
+<!--Søkefelt for å søke etter service basert på serienummer-->
 
 <form asp-controller="Service" asp-action="Search" method="get">
     <div class="form-group">
@@ -11,7 +13,7 @@
 </form>
 
 <br />
-
+<!--Filterering for status-->
 <form asp-controller="Service" asp-action="SearchStatus" method="get" style="float: right">
     <div class="form-group">
         <label for="searchString">Filtrer etter status</label>
@@ -52,6 +54,7 @@
                 <td>@service.Notat</td>
                 <td>@service.Status</td>
                 <td>
+                    <!--Knapp som gjør det mulig å redigere service basert på ID-->
                     <a asp-action="Edit" asp-route-id="@service.ID" class="btn btn-dark">Rediger</a>
                 </td>
             </tr>

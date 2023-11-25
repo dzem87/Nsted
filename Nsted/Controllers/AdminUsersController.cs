@@ -9,6 +9,10 @@ using Nsted.Interfaces;
 using Nsted.Models.ViewModels;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
+//Kontroller som håndterer brukeradministrasjon, og er tilgjengelig for brukere med Admin rollen
+//Bruker IUserRepository interfacet for kommunisere med databasen
+//Bruker UserManager for å håndtere brukere
+
 namespace Nsted.Controllers
 {
     [Authorize(Roles = "Admin")]
@@ -17,7 +21,8 @@ namespace Nsted.Controllers
     {
         private readonly IUserRepository userRepository;
         private readonly UserManager<IdentityUser> userManager;
-
+        
+        //Tjenseser kontrolleren bruker for innlogging av avlogging
         public AdminUsersController(IUserRepository userRepository,
             UserManager<IdentityUser> userManager)
         {
@@ -25,6 +30,7 @@ namespace Nsted.Controllers
             this.userManager = userManager;
         }
 
+        //Metode som returnerer en liste med brukere til viewet
         [HttpGet]
         public async Task<IActionResult> List()
         {
@@ -46,7 +52,8 @@ namespace Nsted.Controllers
             return View(usersViewModel);
         }
 
-
+        //Håndterer HTTP POST forespørsel fra List formet for å legge til en ny bruker
+        //Bruker UserManager for å lage en ny IdentityUser og bestemmer verdiene basert på dataene i formet 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> List(UserViewModel request)
@@ -90,6 +97,8 @@ namespace Nsted.Controllers
 
         }
 
+        //Metode som håndterer HTTP GET forespørsler om sletting av brukere
+        //Bruker UserManager for å finne bruker basert på Id og slette  brukeren
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(Guid id)

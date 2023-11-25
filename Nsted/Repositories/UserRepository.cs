@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Nsted.Data;
 using Nsted.Interfaces;
 
+//Repository som implementerer metodene definert i UserRepository interfacet 
 namespace Nsted.Repositories
 {
     public class UserRepository : IUserRepository
@@ -12,15 +13,17 @@ namespace Nsted.Repositories
 
         public UserRepository(AuthDbContext authDbContext)
         {
-            this.authDbContext = authDbContext;    
+            this.authDbContext = authDbContext;
         }
 
+        //Metodene gir funksjonalitet for å hente alle brukere fra databasen, men ekskluderer spesifikt superadmin-brukeren fra resultatet før den returne
         public async Task<IEnumerable<IdentityUser>> GetAll()
         {
             var users = await authDbContext.Users.ToListAsync();
 
             var superAdminUser = await authDbContext.Users
                 .FirstOrDefaultAsync(x => x.Email == "superAdmin@nsted.com");
+
 
             // Sjekker om superadmin er i users tabellen og sletter den fra lista users
 
@@ -32,4 +35,3 @@ namespace Nsted.Repositories
         }
     }
 }
-

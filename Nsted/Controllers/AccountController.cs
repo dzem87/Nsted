@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Nsted.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 
-//Kontroller som har ansvaret for bruker-relatert autentisering med bruk av Identity Framework
+//Kontroller som har ansvaret for bruker-relatert autentisering ved bruk av Identity Framework
 
 namespace Nsted.Controllers
 {

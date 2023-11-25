@@ -3,6 +3,7 @@ using Nsted.Data;
 using Nsted.Interfaces;
 using Nsted.Models;
 
+//Repository som implementerer metodene definert i SjekklisteRepository interfacet 
 namespace Nsted.Repositories
 {
     public class SjekklisteRepository : ISjekklisteRepository
@@ -14,39 +15,42 @@ namespace Nsted.Repositories
             this.nstedDbContext = nstedDbContext;
         }
 
-        //Asynkron metode for å legge til en sjekkliste til databasen
+        //Denne metoden legger til en sjekklisteobjekt (Sjekkliste) i databasen asynkront.
         public async Task<Sjekkliste?> AddAsync(Sjekkliste sjekkliste)
         {
             await nstedDbContext.Sjekklister.AddAsync(sjekkliste);
             await nstedDbContext.SaveChangesAsync();
             return sjekkliste;
         }
-
+        //Denne metoden sletter en sjekkliste basert på en gitt ID.
         public async Task<Sjekkliste?> DeleteAsync(int id)
-           
+
+        {
+            var eksistingSjekkliste = await nstedDbContext.Sjekklister.FindAsync(id);
+
+            if (eksistingSjekkliste != null)
             {
-                var eksistingSjekkliste = await nstedDbContext.Sjekklister.FindAsync(id);
+                nstedDbContext.Sjekklister.Remove(eksistingSjekkliste);
+                await nstedDbContext.SaveChangesAsync();
+                return eksistingSjekkliste;
+            }
 
-                if (eksistingSjekkliste != null)
-                {
-                    nstedDbContext.Sjekklister.Remove(eksistingSjekkliste);
-                    await nstedDbContext.SaveChangesAsync();
-                    return eksistingSjekkliste;
-                }
-
-                return null;
+            return null;
         }
 
+        //Denne metoden henter alle sjekklister fra databasen asynkront ved å bruke Entity Frameworks ToListAsync()-metode på nstedDbContext.Sjekklister.
         public async Task<IEnumerable<Sjekkliste>> GetAllAsync()
         {
             return await nstedDbContext.Sjekklister.ToListAsync();
         }
 
+        //Denne metoden henter en sjekkliste basert på en gitt ID asynkront og returnerer den første sjekklisten som matcher ID-en.
         public async Task<Sjekkliste?> GetAsync(int id)
         {
             return await nstedDbContext.Sjekklister.FirstOrDefaultAsync(x => x.Id == id);
         }
 
+        //Denne metoden oppdaterer en eksisterende sjekkliste med informasjonen fra en gitt sjekklisteobjekt.
         public async Task<Sjekkliste?> UpdateAsync(Sjekkliste sjekkliste)
         {
             var eksistingSjekkliste = await nstedDbContext.Sjekklister.FindAsync(sjekkliste.Id);

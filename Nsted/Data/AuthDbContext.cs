@@ -14,16 +14,16 @@ namespace Nsted.Data
 
 		}
 
+        //bruker OnModelCreating metoden for å seede data om roller
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-
-            //Seed Roles (User, Admin, SuperAdmin)
 
             var adminRoleId = "fa60657c-7d5f-11ee-b962-0242ac120002";
             var superAdminRoleId = "fa608016-7d5f-11ee-b962-0242ac120002";
             var userRoleId = "fa609222-7d5f-11ee-b962-0242ac120002";
 
+            //Definerer roller, lager liste med ulike roller som er av typen IdentityRole
             var roles = new List<IdentityRole>
             {
                 new IdentityRole
@@ -49,9 +49,10 @@ namespace Nsted.Data
                 }
             };
 
+            //Seed Roles (User, Admin, SuperAdmin) i i builder objektet
             builder.Entity<IdentityRole>().HasData(roles);
 
-            //Seed SuperAdminUser
+            //Definerer SuperAdmin som er typen IdentityUser
             var superAdminId = "fa60936c-7d5f-11ee-b962-0242ac120002";
 
             var superAdminUser = new IdentityUser
@@ -63,12 +64,14 @@ namespace Nsted.Data
                 Id = superAdminId
             };
 
+            //Gir SuperAdmin Passord
             superAdminUser.PasswordHash = new PasswordHasher<IdentityUser>()
                 .HashPassword(superAdminUser, "Nsted@123");
 
+            //Seed SuperAdminUser i builder objektet
             builder.Entity<IdentityUser>().HasData(superAdminUser);
 
-            //Add All roles to SuperAdminUser
+            //Bestemmer rollene til SuperAdminUser
             var superAdminRoles = new List<IdentityUserRole<string>>
             {
                 new IdentityUserRole<string>
@@ -90,6 +93,7 @@ namespace Nsted.Data
                 }
             };
 
+            //Seed SupoerAdminUser med bestemte roller
             builder.Entity<IdentityUserRole<string>>().HasData(superAdminRoles);
 
         }

@@ -22,15 +22,15 @@ var authConnectionString = authConfig.GetConnectionString("NstedAuthDbConnection
 builder.Services.AddDbContext<NstedDbContext>(options =>
     options.UseMySql(connectionString, new MySqlServerVersion(new Version(10, 5, 9))));
 
+//Registrerer AuthDbContext som en service
 builder.Services.AddDbContext<AuthDbContext>(options =>
     options.UseMySql(authConnectionString, new MySqlServerVersion(new Version(10, 5, 9))));
-
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<AuthDbContext>();
 
 builder.Services.Configure<IdentityOptions>(options =>
 {
-    //Default settings
+    //Default paasword settings
     options.Password.RequireDigit = true;
     options.Password.RequireLowercase = true;
     options.Password.RequireNonAlphanumeric = true;

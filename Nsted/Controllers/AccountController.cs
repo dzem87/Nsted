@@ -22,38 +22,7 @@ namespace Nsted.Controllers
             this.signInManager = signInManager;
         }
 
-        [HttpGet]
-        public IActionResult Register()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
-        {
-            var identityUser = new IdentityUser
-            {
-                UserName = registerViewModel.Username,
-                Email = registerViewModel.Email
-            };
-
-            var identityResult = await userManager.CreateAsync(identityUser, registerViewModel.Password);
-
-            if (identityResult.Succeeded)
-            {
-                //assing this user the "User" role
-                var roleIdentityResult = await userManager.AddToRoleAsync(identityUser, "User");
-
-                if (roleIdentityResult.Succeeded)
-                {
-                    //show sucess notification
-                    return RedirectToAction("Register");
-                }
-            }
-
-            //Show error notification 
-            return View();
-        }
+       
 
         [HttpGet]
         public IActionResult Login(string ReturnUrl)

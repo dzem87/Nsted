@@ -6,6 +6,7 @@ using Nsted.Data;
 using Microsoft.AspNetCore.Identity;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Nsted.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 

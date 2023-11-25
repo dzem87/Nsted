@@ -1,10 +1,10 @@
 ﻿using Nsted.Models;
 
-namespace Nsted.Repositories
+namespace Nsted.Interfaces
 {
     public interface IServiceRepository
     {
-        
+
         Task<IEnumerable<Service>> GetAllAsync();
 
         Task<Service?> GetAsync(int id);
@@ -14,7 +14,7 @@ namespace Nsted.Repositories
         Task<Service?> UpdateAsync(Service service);
 
         Task<Service?> DeleteAsync(int id);
-        
-        
+
+
     }
 }

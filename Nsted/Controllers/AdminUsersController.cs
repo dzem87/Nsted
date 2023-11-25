@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Nsted.Interfaces;
 using Nsted.Models.ViewModels;
-using Nsted.Repositories;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Nsted.Controllers

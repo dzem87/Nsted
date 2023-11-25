@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Nsted.Data;
+using Nsted.Interfaces;
 using Nsted.Models;
 
 namespace Nsted.Repositories

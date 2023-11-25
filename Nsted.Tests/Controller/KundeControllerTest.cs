@@ -4,12 +4,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Nsted.Controllers;
 using Nsted.Models;
-using Nsted.Repositories;
 using NSubstitute;
 using System.Collections.Generic;
 using Xunit;
 using FakeItEasy;
 using FluentAssertions;
+using Nsted.Interfaces;
 
 namespace Nsted.Tests.Controller
 {

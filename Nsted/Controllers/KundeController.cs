@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Nsted.Models;
-using Nsted.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using System.Linq;
 using System.Text.Encodings.Web;
+using Nsted.Interfaces;
 
 namespace Nsted.Controllers
 {

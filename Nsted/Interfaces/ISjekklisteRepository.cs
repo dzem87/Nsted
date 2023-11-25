@@ -1,6 +1,6 @@
 ﻿using Nsted.Models;
 
-namespace Nsted.Repositories
+namespace Nsted.Interfaces
 {
     public interface ISjekklisteRepository
     {

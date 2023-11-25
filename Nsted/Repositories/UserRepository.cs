@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Nsted.Data;
+using Nsted.Interfaces;
 
 namespace Nsted.Repositories
 {

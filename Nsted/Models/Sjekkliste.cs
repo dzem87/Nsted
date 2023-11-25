@@ -42,7 +42,7 @@
 
         public string? SjekkKnappekasse {  get; set; }
 
-
+        public string? ServiceID { get; set; }
 
 
     }

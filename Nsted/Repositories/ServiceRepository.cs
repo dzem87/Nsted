@@ -66,6 +66,7 @@ namespace Nsted.Repositories
                 eksistingService.Serienummer = service.Serienummer;
                 eksistingService.Notat = service.Notat;
                 eksistingService.Status = service.Status;
+                eksistingService.KundeID = service.KundeID;
 
                 await nstedDbContext.SaveChangesAsync();
 

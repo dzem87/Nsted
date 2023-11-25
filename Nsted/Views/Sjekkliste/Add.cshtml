@@ -11,15 +11,25 @@
         <input asp-for="Serienummer" class="form-control" required />
     </div>
 
+    <br />
+
     <div class="form-group">
         <table style="width:100%;">
             <tr>
+                
                 <th>Avdeling:</th>
                 <th>Sjekkpunkter:</th>
                 <th>OK</th>
                 <th>Bør skiftes</th>
                 <th>Defekt</th>
             </tr>
+            <tr>
+                <label>Ordrenummer:</label>
+                <input asp-for="ServiceID" class="form-control" required />
+
+            </tr>
+
+            <br />
 
             <tr>
                 <td><b>Mekanisk</b></td>
@@ -46,12 +56,12 @@
             </tr>
 
             @*<tr>
-                <td><b></b></td>
-                <td>SjekkPTO:</td>
-                <td><input type="radio" asp-for="SjekkPTO" value="Ok" /></td>
-                <td><input type="radio" asp-for="SjekkPTO" value="Bør Skiftes" /></td>
-                <td><input type="radio" asp-for="SjekkPTO" value="Defekt" /></td>
-            </tr>*@
+            <td><b></b></td>
+            <td>SjekkPTO:</td>
+            <td><input type="radio" asp-for="SjekkPTO" value="Ok" /></td>
+            <td><input type="radio" asp-for="SjekkPTO" value="Bør Skiftes" /></td>
+            <td><input type="radio" asp-for="SjekkPTO" value="Defekt" /></td>
+        </tr>*@
 
             <tr>
                 <td><b></b></td>

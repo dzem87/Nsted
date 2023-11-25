@@ -14,7 +14,7 @@
 <div style="float:right;">
     <form asp-controller="Sjekkliste" asp-action="Search" method="get">
         <div class="form-group">
-            <label for="searchString">Søk etter sjekklister</label>
+            <label for="searchString">Søk etter serienummer</label>
             <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" />
             <input type="submit" value="Søk" class="btn btn-dark" />
         </div>
@@ -27,7 +27,9 @@
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
+            <th>Ordrenummer</th>
             <th>Serienummer</th>
+            <th>Rediger</th>
 
         </tr>
     </thead>
@@ -35,6 +37,7 @@
         @foreach (var sjekkliste in Model)
         {
             <tr>
+                <td>@sjekkliste.ServiceID</td>
                 <td>@sjekkliste.Serienummer</td>
                 <td>
                     @Html.AntiForgeryToken()

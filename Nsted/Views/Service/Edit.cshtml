@@ -34,16 +34,18 @@
     <br />
 
     @Html.AntiForgeryToken()
-<div class="d-flex">
-    <button type="submit" class="btn btn-dark">Save</button>
+    <div class="d-flex" style="float: left">
+    <button type="submit" class="btn btn-dark">Lagre</button>
+    </div>
 
+    <div class="d-flex" style="float: right">
     <!--Knapp med en onlic funksjon for å vise en alert når en service blir slettet-->
     <button type="submit" class="btn btn-danger"
             asp-area=""
             asp-controller="Service"
             asp-action="Delete"
             onclick="confirmDelete()">
-        Delete
+        Slett
     </button>
 
     <!--Script for å vise en alert-->
@@ -55,4 +57,4 @@
 </div>
 
 </form>
-<button class="btn btn-dark" onclick="window.print()" style="float: right">Skriv ut siden</button>
+<button class="btn btn-dark" onclick="window.print()">Skriv ut siden</button>

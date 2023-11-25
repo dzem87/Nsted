@@ -22,16 +22,17 @@
         <input asp-for="Epost" class="form-control" />
     </div>
 
+    <br />
 
     <div class="d-flex">
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="submit" class="btn btn-dark">Lagre</button>
 
         <button type="submit" class="btn btn-danger"
                 asp-area=""
                 asp-controller="Kunde"
                 asp-action="Delete"
                 onclick="confirmDelete()">
-            Delete
+            Slett
         </button>
 
         <script>

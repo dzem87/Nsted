@@ -36,12 +36,17 @@ namespace Nsted.Controllers
         public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
 
-           var signInResult = await signInManager.PasswordSignInAsync(loginViewModel.Username,
-                loginViewModel.Password, false, false);
+            var signInResult = await signInManager.PasswordSignInAsync(loginViewModel.Username,
+                 loginViewModel.Password, false, false);
 
             if (signInResult != null && signInResult.Succeeded)
             {
                 return RedirectToAction("Index", "Home");
+            }
+
+            else if (signInResult == null || !signInResult.Succeeded)
+            {
+                return View("LoggInnError");
             }
 
             return View();

@@ -20,6 +20,8 @@ namespace Nsted.Models
 
         public string Status { get; set; }
 
+        public string? KundeID { get; set; }
+
     }
 }
 

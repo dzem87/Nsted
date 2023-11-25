@@ -76,6 +76,7 @@ namespace Nsted.Repositories
                 eksistingSjekkliste.SjekkLedningsnett = sjekkliste.SjekkLedningsnett;
                 eksistingSjekkliste.SjekkRadio = sjekkliste.SjekkRadio;
                 eksistingSjekkliste.SjekkKnappekasse = sjekkliste.SjekkKnappekasse;
+                eksistingSjekkliste.ServiceID = sjekkliste.ServiceID;
 
 
                 await nstedDbContext.SaveChangesAsync();

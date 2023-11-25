@@ -38,7 +38,9 @@
             <th>Serienummer</th>
             <th>Notat</th>
             <th>Status</th>
+            <th>KundeID</th>
             <th>Rediger</th>
+
 
         </tr>
     </thead>
@@ -53,6 +55,7 @@
                 <td>@service.Serienummer</td>
                 <td>@service.Notat</td>
                 <td>@service.Status</td>
+                <td>@service.KundeID</td>
                 <td>
                     <!--Knapp som gjør det mulig å redigere service basert på ID-->
                     <a asp-action="Edit" asp-route-id="@service.ID" class="btn btn-dark">Rediger</a>

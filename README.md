@@ -1,4 +1,4 @@
-# Nsted
+# Nøsted
 
 Navn på medlemmer:
 - Anita
@@ -14,10 +14,10 @@ Navn på medlemmer:
 Det overordna målet med prosjektet er å utvikle en web-applikasjon som kobler sammen og digitaliserer dagens system. Nøsted& AS har utviklet vedlikeholds-/reparasjons sjekklister som mekanikerne bruker for å utføre ulike sjekker, som nå i dag benyttes i papirform. Den digitale webapplikasjonen har derfor som formål å forenkle registrering av serviceordre, og samtidig lykkes med et system som oppleves brukervennlig for mekanikere og administrativt personell. Dette gjøres gjennom responsive HTML sider knyttet opp mot database, samt sikkerhet i form av XSS og CSRF. I tillegg til registrering og innloggingsfunksjon for autorisering og autentisering. 
 
 *Verktøy:*
-Applikasjonen skal kjøre gjennom **Docker** 
-**MariaDb** er brukt til databaselagring
-**Entity Framework** er brukt til databasehåndtering 
-Koden er skrevet i **C#** og følger **MVC** mønsteret
+- Applikasjonen skal kjøre gjennom **Docker**
+- **MariaDb** er brukt til databaselagring
+- **Entity Framework** er brukt til databasehåndtering
+- Koden er skrevet i **C#** og følger **MVC** mønsteret
 
 *Kjøring av applikasjonen:* 
 
@@ -27,6 +27,7 @@ NB: På Unix og Unix-lignende systemer (Mac and Linux) kan det hende at du må k
 
      docker image build -t nsted .
      docker container run --rm -it -d --name nsted --publish 80:80 nsted
+
 
 Start mariadb container 
 
@@ -43,11 +44,13 @@ Erstatt innholdet i anførselstegnene med korrekt mappesti
       docker exec -it mariadb bash
 
 
+
 4. Logg inn i MariaDb 
 
       mariadb -u root -p 
 
 Passord: 1234
+
 
 5. Opprett databaser 
 

@@ -6,8 +6,10 @@ using Nsted.Models;
 //Repository som implementerer metodene definert i SjekklisteRepository interfacet 
 namespace Nsted.Repositories
 {
+    // SjekklisteRepository-klasse implementerer ISjekklisteRepository
     public class SjekklisteRepository : ISjekklisteRepository
     {
+        // Kontekst for å samhandle med databasen
         private readonly NstedDbContext nstedDbContext;
 
         public SjekklisteRepository(NstedDbContext nstedDbContext)
@@ -22,7 +24,7 @@ namespace Nsted.Repositories
             await nstedDbContext.SaveChangesAsync();
             return sjekkliste;
         }
-        //Denne metoden sletter en sjekkliste basert på en gitt ID.
+        //Denne metoden sletter en sjekkliste basert på en gitt ID asynkront.
         public async Task<Sjekkliste?> DeleteAsync(int id)
 
         {
@@ -78,7 +80,7 @@ namespace Nsted.Repositories
                 eksistingSjekkliste.SjekkKnappekasse = sjekkliste.SjekkKnappekasse;
                 eksistingSjekkliste.ServiceID = sjekkliste.ServiceID;
 
-
+                // Lagre endringene i databasen
                 await nstedDbContext.SaveChangesAsync();
 
                 return eksistingSjekkliste;

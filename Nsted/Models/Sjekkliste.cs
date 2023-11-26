@@ -1,5 +1,6 @@
 ﻿namespace Nsted.Models
 {
+    //Modellklasse som representerer en Sjekkliste-entitet
     public class Sjekkliste
     {
         public int Id { get; set; }

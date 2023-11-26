@@ -1,14 +1,16 @@
 @model Nsted.Models.Sjekkliste
 
+<!--View som viser edit siden av en sjekkliste-->
 <h2>Sjekkliste</h2>
 
+<!--Skjema for redigering av sjekkliste-->
 <form asp-action="Edit" method="post">
     @Html.AntiForgeryToken()
     <div class="form-group">
         <label asp-for="Id"></label>
         <input asp-for="Id" class="form-control" readonly />
     </div>
-
+     <!--Input forms i sjekkliste som kan endres-->
     <div class="form-group">
         <label asp-for="Serienummer"></label>
         <input asp-for="Serienummer" class="form-control" />
@@ -173,13 +175,13 @@
 
         </table>
     </div>
-
-
+    
     @Html.AntiForgeryToken()
     <div class="d-flex" style="float: left">
         <button type="submit" class="btn btn-dark">Lagre</button>
     </div>
 
+    <!--Knapp med onclick funksjon for å vise en alert når en sjekkliste blir slettet-->
     <div class="d-flex" style="float: right">
         <button type="submit" class="btn btn-danger"
                 asp-area=""
@@ -189,10 +191,11 @@
             Slett
         </button>
     </div>
-
+    
+    <!--Scripy for å vise en alert-->
     <script>
         function confirmDelete() {
-            alert("Servicen er slettet!");
+            alert("Sjekkliste er slettet!");
         }
     </script>
 

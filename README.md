@@ -9,17 +9,17 @@ Navn på medlemmer:
 
 ## **Dokumentasjon:** ##
 
-# **Prosjektets mål:** #
+#### **Prosjektets mål:** ####
 
 Det overordna målet med prosjektet er å utvikle en web-applikasjon som kobler sammen og digitaliserer dagens system. Nøsted& AS har utviklet vedlikeholds-/reparasjons sjekklister som mekanikerne bruker for å utføre ulike sjekker, som nå i dag benyttes i papirform. Den digitale webapplikasjonen har derfor som formål å forenkle registrering av serviceordre, og samtidig lykkes med et system som oppleves brukervennlig for mekanikere og administrativt personell. Dette gjøres gjennom responsive HTML sider knyttet opp mot database, samt sikkerhet i form av XSS og CSRF. I tillegg til registrering og innloggingsfunksjon for autorisering og autentisering. 
 
-# *Verktøy:* #
+#### *Verktøy:* ####
 - Applikasjonen skal kjøre gjennom **Docker**
 - **MariaDb** er brukt til databaselagring
 - **Entity Framework** er brukt til databasehåndtering
 - Koden er skrevet i **C#** og følger **MVC** mønsteret
 
-# *Kjøring av applikasjonen:* #
+#### *Kjøring av applikasjonen:* ####
 
 > NB: På Unix og Unix-lignende systemer (Mac and Linux) kan det hende at du må kjøre kommandoene med sudo for å få det til å fungere.
 
@@ -75,7 +75,7 @@ Passord: 1234
 Notat: Kan hende Unix systemer må kjøre uten http:
 
 
-# *Videreutvikling av prosjektet:* #
+#### *Videreutvikling av prosjektet:* ####
 
 Det er tillatt å kopiere koden:) 
 

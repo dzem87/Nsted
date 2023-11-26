@@ -7,12 +7,13 @@ using Nsted.Models;
 
 namespace Nsted.Data
 {
+    // NstedDbContext arver fra DbContext, som gir funksjonalitet for å koble applikasjonen til en database.
     public class NstedDbContext : DbContext
     {
+        // Constructor tar imot instillinger (options) for å sette opp forbindelsen til databasen.
         public NstedDbContext(DbContextOptions<NstedDbContext> options) : base(options)
         {
         }
-
         public DbSet<Kunde> Kunder { get; set; }
 
         public DbSet<Service> Servicer { get; set; }

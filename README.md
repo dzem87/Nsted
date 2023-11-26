@@ -25,8 +25,8 @@ NB: På Unix og Unix-lignende systemer (Mac and Linux) kan det hende at du må k
 
 1. Kjøre applikasjonen i Docker ved å bygge et image og en container 
 
-docker image build -t nsted .
-docker container run --rm -it -d --name nsted --publish 80:80 nsted
+     docker image build -t nsted .
+     docker container run --rm -it -d --name nsted --publish 80:80 nsted
 
 Start mariadb container 
 
@@ -40,26 +40,27 @@ Erstatt innholdet i anførselstegnene med korrekt mappesti
 
 3. Gå inn i den opprettede MariaDb konteineren 
 
-docker exec -it mariadb bash
+      docker exec -it mariadb bash
 
 
 4. Logg inn i MariaDb 
 
-mariadb -u root -p 
+      mariadb -u root -p 
 
 Passord: 1234
 
 5. Opprett databaser 
 
 
-CREATE DATABASE NstedDb;
+      CREATE DATABASE NstedDb;
 
-CREATE DATABASE NstedAuthDb; 
+      CREATE DATABASE NstedAuthDb; 
 
 
 6. Oppdater databasene 
 
 Åpne terminal eller powershell og naviger til prosjektets mappe (prosjektet må være clonet ned fra github)
+
 
 | Bash (Mac og Linux) | Powershell (Windows)|
 | ------------- | ------------- |

@@ -1,6 +1,9 @@
 ﻿@model Nsted.Models.ViewModels.UserViewModel;
 
-@*View med tilgang for admin som viser frem en liste med brukere, og gjøre det mulig å slette hver enkelt bruker*@
+@*
+    View med tilgang for admin som viser frem en liste med brukere, og gjøre det å legge til en ny bruker og
+    slette en eksisterende bruker
+*@
 
 <div class="bg-secondary bg-opacity-10 py-2">
     <div class="container">
@@ -9,6 +12,7 @@
 </div>
 
 <div>
+    @*Knapp som åpner en modal for å legge til en ny bruker*@
     <div class="container py-5">
         <div class="mb-3 d-felx justify-content-end">
             <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCreateUser">
@@ -16,7 +20,7 @@
             </button>
         </div>
 
-
+        @*Viser en tablle med alle brukere og en slett knapp for hver bruker*@
         @if (Model.Users != null || Model.Users.Any())
         {
             <table class="table">
@@ -57,7 +61,7 @@
     </div>
 </div>
 
-<!-- Modal -->
+@*Lager et form inni en modal for å legge til en ny bruker med spesifisert rolle*@
 <form method="post">
     @Html.AntiForgeryToken()
     <div class="modal fade" id="modalCreateUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -1,5 +1,3 @@
-//Klasse som tester metoder i KundeController ved bruk av...
-
 
 using Microsoft.AspNetCore.Mvc;
 using Nsted.Controllers;
@@ -10,6 +8,9 @@ using Xunit;
 using FakeItEasy;
 using FluentAssertions;
 using Nsted.Interfaces;
+
+//Klasse som er skrevet ved bruk av XUnit for å teste metodene i KundeController
+//Bruker FakeItEasy for å mocke oppførselen til IKundeRepositoryen
 
 namespace Nsted.Tests.Controller
 {

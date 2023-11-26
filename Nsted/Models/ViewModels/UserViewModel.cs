@@ -1,4 +1,7 @@
 ﻿using System;
+
+//Modellen blir brukt til å overføre data mellom AdminUsersControlleren og List viewet
+
 namespace Nsted.Models.ViewModels
 {
 	public class UserViewModel

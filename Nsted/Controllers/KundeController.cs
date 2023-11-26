@@ -5,55 +5,54 @@ using System.Linq;
 using System.Text.Encodings.Web;
 using Nsted.Interfaces;
 
-//Kontroller som bruker KundeRepository for å kommunisere med Kunder tabllen i databasen
-//og inneholder metoder for å 
-//som tar imot ulike HTTP requests fra views og bruker KundeRepository
-//for å kommunisere med Kunder tabellen i databasen
+//Kontroller som muliggjør CRUD operasjoner på kunder
+//Bruker IKundeRepository for å kommunisere med databasen
+//Bruker autorisasjon for å sikre at kun autoriserte brukere har tilgang til metodene
 
 
 namespace Nsted.Controllers
 {
 
-    //Alle metoder i kontrolleren krever autorisasjon
     [Authorize]
     public class KundeController : Controller
     {
 
         private readonly IKundeRepository kundeRepository;
         
+        //Dependencies
         public KundeController(IKundeRepository kundeRepository)
         {
             this.kundeRepository = kundeRepository;
         }
 
        
-        //Returnerer et view for å legge til nye kunder
+        //Returnerer view for å legge til nye kunder
         [HttpGet]
         public IActionResult Add()
         {
             return View();
         }
 
-        //
+        //Håndterer HTTP POST forespørsler for å legge til nye kunder
         [HttpPost]
         [ValidateAntiForgeryToken] 
         public async Task<IActionResult> Add(Kunde kunde)
         {
             await kundeRepository.AddAsync(kunde);
 
-            //redirect to the list page
             return RedirectToAction("List");
         }
         
+        //Håndterer HTTP GET forespørsler for å liste ut alle kunder
         [HttpGet]
         public async Task<IActionResult> List()
         {
-
             var kunder = await kundeRepository.GetAllAsync();
 
             return View(kunder);
         }
 
+        //Håndterer HTTP POST forespørsler for sletting av kunder
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(Kunde kunde)
@@ -66,11 +65,10 @@ namespace Nsted.Controllers
                 return RedirectToAction("List");
             }
 
-            //Show an error notification if Kunde is not found
-            //Finne en bedre måte å vise error på
             return View(null);
         }
 
+        //Håndterer HTTP GET forespørsler for å hente ut en kunde til Edit viewt
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {    
@@ -87,6 +85,7 @@ namespace Nsted.Controllers
         }
 
 
+        //Håndterer HTTP GET forespørsler for søk av kunder
         [HttpGet]
         public async Task<IActionResult> Search(string searchString)
         {
@@ -101,6 +100,7 @@ namespace Nsted.Controllers
         }
 
 
+        //Håndterer HTTP POST forespørsler for oppdatering av kunder
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Kunde kunde)

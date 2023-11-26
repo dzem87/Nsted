@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Nsted.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 
-//Kontroller som har ansvaret for bruker-relatert autentisering ved bruk av Identity Framework
+//Kontroller som bruker Identity Framework for autentisering av brukere
 
 namespace Nsted.Controllers
 {
@@ -15,7 +15,7 @@ namespace Nsted.Controllers
         private readonly UserManager<IdentityUser> userManager;
         private readonly SignInManager<IdentityUser> signInManager;
 
-        //Tjenseser kontrolleren bruker for innlogging av avlogging
+        //Dependencies
         public AccountController(UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager)
         {
@@ -35,7 +35,7 @@ namespace Nsted.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
-
+            //Prøver å logge inn bruker basert på brukernavn og passord
             var signInResult = await signInManager.PasswordSignInAsync(loginViewModel.Username,
                  loginViewModel.Password, false, false);
 

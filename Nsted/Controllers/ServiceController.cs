@@ -7,17 +7,21 @@ using System.Text.Encodings.Web;
 
 namespace Nsted.Controllers
 {
-    //Kontroller som kummuniserer med ServiceRepository 
+    //Kontroller som muliggjør CRUD operasjoner på servicer
+    //Bruker IServiceRepository for å kommunisere med databasen
+    //Bruker autorisasjon for å sikre at kun autoriserte brukere har tilgang til metodene
+
+
     [Authorize]
     public class ServiceController : Controller
     {
 
-        //Konstruktør for repository som bruker IserviceRepository som en instans
+       
         private readonly IServiceRepository serviceRepository;
 
         public ServiceController(IServiceRepository serviceRepository)
         {
-            
+            //Dependencies
             this.serviceRepository = serviceRepository;
         }
 
@@ -80,7 +84,7 @@ namespace Nsted.Controllers
             return View(null);
         }
 
-        //Håndeter visningen for gitt søkeresultat, viser bare relevante søkeresultat 
+        //Håndeter visningen for et gitt søkeresultat, viser bare relevante søkeresultat 
         [HttpGet]
         public async Task<IActionResult> Search(string searchString)
         {

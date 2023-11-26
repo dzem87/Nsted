@@ -1,5 +1,7 @@
 ﻿using System;
 
+//Model som representerer informasjon assosiesert med en kunde, og blir brukt for jobbe med kunde data i applikasjonen
+
 namespace Nsted.Models
 { 
     public class Kunde {

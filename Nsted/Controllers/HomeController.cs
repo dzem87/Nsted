@@ -4,7 +4,7 @@ using Nsted.Models;
 using System.Diagnostics;
 
 
-//Kontroller med ansvaret for å vise hjemside med klokke
+//Kontroller som viser hjemside med klokke
 
 namespace Nsted.Controllers
 {

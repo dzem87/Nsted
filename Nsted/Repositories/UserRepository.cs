@@ -16,7 +16,7 @@ namespace Nsted.Repositories
             this.authDbContext = authDbContext;
         }
 
-        //Metodene gir funksjonalitet for å hente alle brukere fra databasen, men ekskluderer spesifikt superadmin-brukeren fra resultatet før den returne
+        //Hente alle brukere fra databasen, men ekskluderer spesifikt superadmin-brukeren fra resultatet
         public async Task<IEnumerable<IdentityUser>> GetAll()
         {
             var users = await authDbContext.Users.ToListAsync();

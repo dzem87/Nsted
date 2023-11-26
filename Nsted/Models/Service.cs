@@ -2,6 +2,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
+// Modellklassen som representerer informasjon om en tjeneste eller service.
 namespace Nsted.Models
 {
     public class Service

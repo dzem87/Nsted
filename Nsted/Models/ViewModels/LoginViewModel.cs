@@ -6,8 +6,10 @@ namespace Nsted.Models.ViewModels
 {
 	public class LoginViewModel
 	{
+		// Egenskap som representerer brukernavn for innlogging.
 		public string Username { get; set; }
 
+		// Egenskap som representerer passordet for innlogging.
 		public string Password { get; set; }
 
 	}

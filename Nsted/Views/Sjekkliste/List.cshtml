@@ -2,15 +2,18 @@
 
 <h2>Sjekklister</h2>
 
+<!-- Knapp for å opprette en ny sjekkliste -->
 <div style="margin-bottom: 20px; float:left;">
     <a class="btn btn-dark" role="button" asp-area="" asp-controller="Sjekkliste" asp-action="Add">Opprett ny sjekkliste</a>
 </div>
 
+<!-- Knapp for å gå tilbake til alle sjekklister -->
 <a asp-action="List" class="btn btn-dark" style="float:right;">Tilbake til alle sjekklister</a>
 
 <br />
 <br />
 
+<!-- Søkefelt for å filtrere sjekklister basert på serienummer -->
 <div style="float:right;">
     <form asp-controller="Sjekkliste" asp-action="Search" method="get">
         <div class="form-group">
@@ -34,17 +37,19 @@
         </tr>
     </thead>
     <tbody>
+        <!-- Itererer gjennom hver sjekkliste i modellen -->
         @foreach (var sjekkliste in Model)
         {
-            <tr>
-                <td>@sjekkliste.ServiceID</td>
-                <td>@sjekkliste.Serienummer</td>
-                <td>
-                    @Html.AntiForgeryToken()
-                    <a asp-action="Edit" asp-route-id="@sjekkliste.Id" class="btn btn-dark">Rediger</a>
-                </td>
-            </tr>
-        }
+        <tr>
+            <td>@sjekkliste.ServiceID</td>
+            <td>@sjekkliste.Serienummer</td>
+            <td>
+                <!-- Knapp for å redigere en sjekkliste -->
+                @Html.AntiForgeryToken()
+                <a asp-action="Edit" asp-route-id="@sjekkliste.Id" class="btn btn-dark">Rediger</a>
+            </td>
+        </tr>
+    }
     </tbody>
 </table>
 

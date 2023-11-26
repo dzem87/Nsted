@@ -2,7 +2,7 @@
 using Nsted.Models;
 
 //DbContext klasse for EntityFrameworkCore som brukes som en kobling mellom applikasjonen og databasen
-//Definerer entitetene (Kunde, Service og Sjekkliste) og deres tabeller i databasen
+//Definerer entitetene (Kunde, Service og Sjekkliste) og deres tabeller i databasen.
 //
 
 namespace Nsted.Data

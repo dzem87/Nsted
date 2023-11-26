@@ -92,7 +92,7 @@ namespace Nsted.Data
                     UserId = superAdminId
                 },
 
-                // Gir SuperAdmin User-rolle
+                // Gir SuperAdmin User rolle
                 new IdentityUserRole<string>
                 {
                     RoleId = userRoleId,
